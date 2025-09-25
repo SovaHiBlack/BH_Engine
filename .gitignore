@@ -12,3 +12,6 @@
 /Release-Win32/binary
 /Release-Win32/intermediate
 /Release-Win32/libraries
+/gamedataOGSM/levels
+/gamedataOGSM/sounds
+/gamedataOGSM/textures

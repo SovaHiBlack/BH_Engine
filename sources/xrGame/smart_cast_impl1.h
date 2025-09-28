@@ -370,7 +370,8 @@ namespace SmartDynamicCast {
 		typedef typename Tail::Head		NextHead;
 
 		template <typename P>
-		struct CHelper {
+		struct SHelper
+		{
 			IC	static Target* smart_cast(Head *p)
 			{
 				return		(CSmartCaster<Tail,Target>::smart_cast(SmartDynamicCast::smart_cast<NextHead>(p)));
@@ -378,7 +379,7 @@ namespace SmartDynamicCast {
 		};
 
 		template <>
-		struct CHelper<Loki::NullType> {
+		SHelper CHelper<Loki::NullType> {
 			IC	static Target* smart_cast(Head *p)
 			{
 				return		(SmartDynamicCast::smart_cast<Target>(p));
@@ -389,7 +390,7 @@ namespace SmartDynamicCast {
 		{
 			if (!p)
 				return	(reinterpret_cast<Target*>(p));
-			return		(CHelper<typename Tail::Tail>::smart_cast(p));
+			return SHelper<typename Tail::Tail>::smart_cast(p);
 		}
 	};
 
@@ -415,7 +416,8 @@ namespace SmartDynamicCast {
 	};
 
 	template <typename T1, typename T2>
-	struct CHelper1 {
+	struct SHelper1
+	{
 		template <bool base>
 		IC	static T1* smart_cast(T2 *p)
 		{
@@ -432,7 +434,7 @@ namespace SmartDynamicCast {
 	template <typename T1, typename T2>
 	IC	T1* smart_cast(T2 *p)
 	{
-		return					(CHelper1<T1,T2>::smart_cast<object_type_traits::is_base_and_derived<T1,T2>::value || object_type_traits::is_same<T1,T2>::value>(p));
+		return					(SHelper1<T1,T2>::smart_cast<object_type_traits::is_base_and_derived<T1,T2>::value || object_type_traits::is_same<T1,T2>::value>(p));
 	}
 
 	template <typename T2>

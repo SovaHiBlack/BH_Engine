@@ -12,7 +12,7 @@ template <typename P>
 struct CComparer
 {
 	template <typename T>
-	struct CHelper
+	struct SHelper
 	{
 		template <bool a>
 		IC	static bool compare(const T& _1, const T& _2, const P& p)
@@ -123,7 +123,7 @@ struct CComparer
 		return					(compare(_1, _2, p, true));
 	}
 
-	struct CHelper3
+	struct SHelper3
 	{
 		template <typename T>
 		IC	static bool compare(const T& _1, const T& _2, const P& p)
@@ -141,25 +141,25 @@ struct CComparer
 	};
 
 	template <typename T>
-	struct CHelper4
+	struct SHelper4
 	{
 		template <bool a>
 		IC	static bool compare(const T& _1, const T& _2, const P& p)
 		{
-			return(CHelper<T>::compare<object_type_traits::is_pointer<T>::value>(_1, _2, p));
+			return SHelper<T>::compare<object_type_traits::is_pointer<T>::value>(_1, _2, p);
 		}
 
 		template <>
 		IC	static bool compare<true>(const T& _1, const T& _2, const P& p)
 		{
-			return(CHelper3::compare(_1, _2, p));
+			return(SHelper3::compare(_1, _2, p));
 		}
 	};
 
 	template <typename T>
 	IC	static bool compare(const T& _1, const T& _2, const P& p)
 	{
-		return						(CHelper4<T>::compare<object_type_traits::is_stl_container<T>::value>(_1, _2, p));
+		return SHelper4<T>::compare<object_type_traits::is_stl_container<T>::value>(_1, _2, p);
 	}
 };
 

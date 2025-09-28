@@ -10,7 +10,8 @@
 
 struct CCloner {
 	template <typename T>
-	struct CHelper {
+	struct SHelper
+	{
 		template <bool a>
 		IC	static void clone(const T &_1, T &_2)
 		{
@@ -127,7 +128,8 @@ struct CCloner {
 		return					(clone(_1,_2,true));
 	}
 
-	struct CHelper3 {
+	struct SHelper3
+	{
 		template <template <typename _1> class T1, typename T2>
 		IC	static void add(T1<T2> &data, typename T1<T2>::value_type &value)
 		{
@@ -155,24 +157,25 @@ struct CCloner {
 	};
 
 	template <typename T>
-	struct CHelper4 {
+	struct SHelper4
+	{
 		template <bool a>
 		IC	static void clone(const T &_1, T &_2)
 		{
-			CHelper<T>::clone<object_type_traits::is_pointer<T>::value>(_1,_2);
+			SHelper<T>::clone<object_type_traits::is_pointer<T>::value>(_1,_2);
 		}
 
 		template <>
 		IC	static void clone<true>(const T &_1, T &_2)
 		{
-			CHelper3::clone(_1,_2);
+			SHelper3::clone(_1,_2);
 		}
 	};
 
 	template <typename T>
 	IC	static void clone(const T &_1, T &_2)
 	{
-		CHelper4<T>::clone<object_type_traits::is_stl_container<T>::value>(_1,_2);
+		SHelper4<T>::clone<object_type_traits::is_stl_container<T>::value>(_1,_2);
 	}
 };
 

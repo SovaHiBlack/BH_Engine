@@ -35,7 +35,6 @@ public:
 	virtual void			on_destroy			()								= 0;
 };
 
-
 template<typename _Object>
 class CControlledEntity : public CControlledEntityBase {
 	

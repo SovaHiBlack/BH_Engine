@@ -28,7 +28,7 @@
 #include "StringTable.h"
 #include "AutosaveManager.h"
 #include "AISpace.h"
-#include "ai/monsters/BaseMonster/base_monster.h"
+#include "ai/monsters/BaseMonster/BaseMonster.h"
 #include "date_time.h"
 #include "mt_config.h"
 #include "ZoneEffector.h"

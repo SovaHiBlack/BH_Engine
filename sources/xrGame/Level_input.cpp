@@ -16,7 +16,7 @@
 #include "saved_game_wrapper.h"
 
 #ifdef _DEBUG
-#	include "ai/monsters/BaseMonster/base_monster.h"
+#	include "ai/monsters/BaseMonster/BaseMonster.h"
 #endif
 
 #ifdef DEBUG

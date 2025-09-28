@@ -21,7 +21,7 @@
 #include "ai_object_location.h"
 #include "script_callback_ex.h"
 #include "GameObject_space.h"
-#include "AI/Monsters/BaseMonster/base_monster.h"
+#include "AI/Monsters/BaseMonster/BaseMonster.h"
 #include "TradeParameters.h"
 #include "PurchaseList.h"
 #include "clsid_game.h"

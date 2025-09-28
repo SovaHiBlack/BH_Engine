@@ -1,19 +1,13 @@
-////////////////////////////////////////////////////////////////////////////
 //	Module 		: object_saver.h
-//	Created 	: 21.01.2003
-//  Modified 	: 09.07.2004
-//	Author		: Dmitriy Iassenev
 //	Description : Object saver
-////////////////////////////////////////////////////////////////////////////
 
 #pragma once
 
 template <class M, typename P>
-struct CSaver
+struct SSaver
 {
-
 	template <typename T>
-	struct CHelper1
+	struct SHelper1
 	{
 		template <bool a>
 		IC	static void save_data(const T& data, M& stream, const P& p)
@@ -31,13 +25,12 @@ struct CSaver
 	};
 
 	template <typename T>
-	struct CHelper
+	struct SHelper
 	{
-
 		template <bool pointer>
 		IC	static void save_data(const T& data, M& stream, const P& p)
 		{
-			CHelper1<T>::save_data<
+			SHelper1<T>::save_data<
 				object_type_traits::is_base_and_derived_or_same_from_template<
 				IPureSavableObject,
 				T
@@ -48,11 +41,11 @@ struct CSaver
 		template <>
 		IC	static void save_data<true>(const T& data, M& stream, const P& p)
 		{
-			CSaver<M, P>::save_data(*data, stream, p);
+			SSaver<M, P>::save_data(*data, stream, p);
 		}
 	};
 
-	struct CHelper3
+	struct SHelper3
 	{
 		template <typename T>
 		IC	static void save_data(const T& data, M& stream, const P& p)
@@ -62,23 +55,23 @@ struct CSaver
 			T::const_iterator				E = data.end( );
 			for (; I != E; ++I)
 				if (p(data, *I))
-					CSaver<M, P>::save_data(*I, stream, p);
+					SSaver<M, P>::save_data(*I, stream, p);
 		}
 	};
 
 	template <typename T>
-	struct CHelper4
+	struct SHelper4
 	{
 		template <bool a>
 		IC	static void save_data(const T& data, M& stream, const P& p)
 		{
-			CHelper<T>::save_data<object_type_traits::is_pointer<T>::value>(data, stream, p);
+			SHelper<T>::save_data<object_type_traits::is_pointer<T>::value>(data, stream, p);
 		}
 
 		template <>
 		IC	static void save_data<true>(const T& data, M& stream, const P& p)
 		{
-			CHelper3::save_data(data, stream, p);
+			SHelper3::save_data(data, stream, p);
 		}
 	};
 
@@ -106,9 +99,9 @@ struct CSaver
 	IC	static void save_data(const std::pair<T1, T2>& data, M& stream, const P& p)
 	{
 		if (p(data, data.first, true))
-			CSaver<M, P>::save_data(data.first, stream, p);
+			SSaver<M, P>::save_data(data.first, stream, p);
 		if (p(data, data.second, false))
-			CSaver<M, P>::save_data(data.second, stream, p);
+			SSaver<M, P>::save_data(data.second, stream, p);
 	}
 
 	IC	static void save_data(const xr_vector<bool>& data, M& stream, const P& p)
@@ -148,7 +141,7 @@ struct CSaver
 		{
 			if (p(data, *I))
 			{
-				CSaver<M, P>::save_data(*I, stream, p);
+				SSaver<M, P>::save_data(*I, stream, p);
 			}
 		}
 	}
@@ -162,7 +155,7 @@ struct CSaver
 		{
 			if (p(temp, temp.front( )))
 			{
-				CSaver<M, P>::save_data(temp.front( ), stream, p);
+				SSaver<M, P>::save_data(temp.front( ), stream, p);
 			}
 		}
 	}
@@ -176,7 +169,7 @@ struct CSaver
 		{
 			if (p(temp, temp.top( )))
 			{
-				CSaver<M, P>::save_data(temp.top( ), stream, p);
+				SSaver<M, P>::save_data(temp.top( ), stream, p);
 			}
 		}
 	}
@@ -190,7 +183,7 @@ struct CSaver
 		{
 			if (p(temp, temp.top( )))
 			{
-				CSaver<M, P>::save_data(temp.top( ), stream, p);
+				SSaver<M, P>::save_data(temp.top( ), stream, p);
 			}
 		}
 	}
@@ -210,7 +203,7 @@ struct CSaver
 	template <typename T>
 	IC	static void save_data(const T& data, M& stream, const P& p)
 	{
-		CHelper4<T>::save_data<object_type_traits::is_stl_container<T>::value>(data, stream, p);
+		SHelper4<T>::save_data<object_type_traits::is_stl_container<T>::value>(data, stream, p);
 	}
 };
 
@@ -218,7 +211,7 @@ namespace object_saver
 {
 	namespace detail
 	{
-		struct CEmptyPredicate
+		struct SEmptyPredicate
 		{
 			template <typename T1, typename T2>
 			IC	bool operator()	(const T1& data, const T2& value) const
@@ -237,11 +230,11 @@ namespace object_saver
 template <typename T, typename M, typename P>
 IC	void save_data(const T& data, M& stream, const P& p)
 {
-	CSaver<M, P>::save_data(data, stream, p);
+	SSaver<M, P>::save_data(data, stream, p);
 }
 
 template <typename T, typename M>
 IC	void save_data(const T& data, M& stream)
 {
-	save_data(data, stream, object_saver::detail::CEmptyPredicate( ));
+	save_data(data, stream, object_saver::detail::SEmptyPredicate( ));
 }

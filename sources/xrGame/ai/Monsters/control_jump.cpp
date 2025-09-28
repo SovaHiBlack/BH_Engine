@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "control_jump.h"
-#include "BaseMonster/base_monster.h"
+#include "BaseMonster/BaseMonster.h"
 #include "control_manager.h"
 #include "../../PHMovementControl.h"
 #include "../../..\XR_3DA\skeletonanimated.h"

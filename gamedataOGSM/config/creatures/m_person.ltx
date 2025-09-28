@@ -14,6 +14,7 @@ script_binding		 			= bind_monster.bind
 ;supplies					= m_bread,50,0.5,1.5, CANNED,30,0.5,1.5, MEDI_KIT,7,0,0.7, DETECTOR_SIMPLE,3,0,0.6, WPN_BINOC,1,0,0.70, WPN_FORT,WPN_PM,3,0.3,0.8, WPN_LR300,WPN_AK47,2,0.3,0.65, WPN_SVD,1,0,0.53, WPN_RPG7,1,0,0.53, grenade_f1,15,0,1.0, ammo_5.45x39_ap,ammo_5.45x39_fmj,50,0,1.0, ammo_5.56x45_ap,ammo_5.56õ45_ss190,50,0,1.0, ammo_9x19_fmj,50,0,1.0, ammo_7.62õ54_fmj,10,0,1.0, ammo_og-7b,10,0,1.0 
 supplies					= grenade_f1,15,0,1.0, ammo_5.45x39_ap,ammo_5.45x39_fmj,50,0,1.0, ammo_5.56x45_ap,ammo_5.56õ45_ss190,50,0,1.0, ammo_9x19_fmj,50,0,1.0, ammo_7.62x54_ap,10,0,1.0, ammo_og-7b,10,0,1.0 
 max_item_mass				= 10000.0
+MaxHealthValue		 = 100			; range [0..200]
 
 ;---EVALUATION FUNCTIONS----------------------------------------------
 ef_creature_type			= 1							; option for evaluation functions
@@ -26,6 +27,8 @@ MinSpeed		     = 1.0						; option for ALife Simulator
 MaxSpeed		     = 1.5						; option for ALife Simulator
 going_speed          = 1.0                      ; option for ALife Simulator
 
+eye_range					= 70
+
 ph_box0_center 		 = 0.0,  0.9,  0.0
 ph_box0_size 		 = 0.35, 0.9,  0.35
 ph_box1_center 		 = 0.0,  0.6,  0.0
@@ -34,8 +37,8 @@ ph_crash_speed_min   = 8;16
 ph_crash_speed_max   = 16;30
 ph_mass 		     = 170.
 cost			     = 1
-
-
+terrain		         = 255,255,255,255,0,1          ;1,255,255,255,0,1, 2,255,255,255,0,1, 3,255,255,255,0,1, 4,255,255,255,0,1
+smart_terrain_choose_interval	= 00:15:00
 Health				 = 100.0
 money				 = 1000000
 

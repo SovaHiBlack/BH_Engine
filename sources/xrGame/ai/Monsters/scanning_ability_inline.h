@@ -51,7 +51,7 @@ TEMPLATE_SPECIALIZATION
 void CScanningAbilityAbstract::reinit()
 {
 	state				= eStateDisabled;
-	scan_value			= 0.f;
+	scan_value			= 0.0f;
 
 	time_last_trace		= 0;
 

@@ -1,7 +1,7 @@
 #include "stdafx.h"
 
 #include "monster_enemy_memory.h"
-#include "BaseMonster/base_monster.h"
+#include "BaseMonster/BaseMonster.h"
 #include "../../memory_manager.h"
 #include "../../visual_memory_manager.h"
 #include "../../enemy_manager.h"

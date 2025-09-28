@@ -1,8 +1,9 @@
 #pragma once
 
-class CEnergyHolder {
+class CEnergyHolder
+{
 
-	// энергия
+// энергия
 	f32		m_value;			// текущее значение энергии
 	f32		m_restore_vel;		// скорость восстановления (ltx-param)
 	f32		m_decline_vel;		// скорость уменьшения энергии в активном состоянии (ltx-param)	
@@ -10,7 +11,7 @@ class CEnergyHolder {
 	f32		m_activate_value;	// значение энергии, больше которого активность может быть восстановлена (ltx-param)
 	u32			m_time_last_update;	// время последнего обновления энергии
 	f32		m_aggressive_restore_vel; // скорость агрессивного восстановления (ltx-param)
-	
+
 	// активность
 	bool		m_active;
 
@@ -25,32 +26,57 @@ class CEnergyHolder {
 	bool		m_aggressive;
 
 public:
-					CEnergyHolder			();
-	virtual			~CEnergyHolder			();
+	CEnergyHolder( );
+	virtual			~CEnergyHolder( );
 
-	virtual	void	reinit					();
-	virtual	void	reload					(pcstr section, pcstr prefix = "", pcstr suffix = "");
+	virtual	void	reinit( );
+	virtual	void	reload(pcstr section, pcstr prefix = "", pcstr suffix = "");
 
-	virtual	void	schedule_update			();
+	virtual	void	schedule_update( );
 
-	virtual	void	on_activate				() {};
-	virtual	void	on_deactivate			() {};
+	virtual	void	on_activate( )
+	{ }
+	virtual	void	on_deactivate( )
+	{ }
 
-			// активность поля
-			void	activate				();
-			void	deactivate				();
-	IC		bool	is_active				(){return m_active;}
-	IC		bool	can_activate			(){return (m_value > m_activate_value);}
-	IC		bool	should_deactivate		(){return (m_value < m_critical_value);}
-	IC		void	set_auto_activate		(bool b_auto = true)  {m_auto_activate = b_auto;}
-	IC		void	set_auto_deactivate		(bool b_auto = true)  {m_auto_deactivate = b_auto;}
+	// активность поля
+	void	activate( );
+	void	deactivate( );
+	IC		bool	is_active( )
+	{
+		return m_active;
+	}
+	IC		bool	can_activate( )
+	{
+		return (m_value > m_activate_value);
+	}
+	IC		bool	should_deactivate( )
+	{
+		return (m_value < m_critical_value);
+	}
+	IC		void	set_auto_activate(bool b_auto = true)
+	{
+		m_auto_activate = b_auto;
+	}
+	IC		void	set_auto_deactivate(bool b_auto = true)
+	{
+		m_auto_deactivate = b_auto;
+	}
 
-			void	enable					();
-	IC		void	disable					(){m_enable = false;}
+	void	enable( );
+	IC		void	disable( )
+	{
+		m_enable = false;
+	}
 
-	IC		void	set_aggressive			(bool b_val = true) {m_aggressive = b_val;}
+	IC		void	set_aggressive(bool b_val = true)
+	{
+		m_aggressive = b_val;
+	}
 
-
-	// DEBUG
-	IC		f32	get_value				() {return m_value;}
+// DEBUG
+	IC		f32	get_value( )
+	{
+		return m_value;
+	}
 };

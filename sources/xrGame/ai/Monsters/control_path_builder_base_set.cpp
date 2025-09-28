@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "control_path_builder_base.h"
-#include "BaseMonster/base_monster.h"
+#include "BaseMonster/BaseMonster.h"
 #include "../../level_graph.h"
 #include "../../AISpace.h"
 

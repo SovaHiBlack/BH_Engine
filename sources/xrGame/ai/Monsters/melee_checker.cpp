@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "melee_checker.h"
-#include "basemonster/base_monster.h"
+#include "BaseMonster/BaseMonster.h"
 #include "../../..\XR_3DA\skeletonanimated.h"
 #include "../../..\XR_3DA\xr_collide_form.h"
 

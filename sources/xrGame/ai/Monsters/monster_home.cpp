@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "monster_home.h"
-#include "BaseMonster/base_monster.h"
+#include "BaseMonster/BaseMonster.h"
 #include "../../AISpace.h"
 #include "../../patrol_path_storage.h"
 #include "../../patrol_path.h"

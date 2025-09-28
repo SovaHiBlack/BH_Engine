@@ -1,13 +1,8 @@
-////////////////////////////////////////////////////////////////////////////
-//	Module 		: base_monster_anim.cpp
-//	Created 	: 22.05.2003
-//  Modified 	: 23.09.2003
-//	Author		: Serge Zhem
+//	Module 		: BaseMonster_anim.cpp
 //	Description : Animations for monsters of biting class 
-////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
-#include "base_monster.h"
+#include "BaseMonster.h"
 #include "../../../..\XR_3DA\skeletonanimated.h"
 #include "../../../sound_player.h"
 #include "../../../ai_monster_space.h"
@@ -18,4 +13,3 @@ void CBaseMonster::SelectAnimation(const fVector3&/**_view/**/, const fVector3&/
 {
 	control().animation().update_frame();
 }
-

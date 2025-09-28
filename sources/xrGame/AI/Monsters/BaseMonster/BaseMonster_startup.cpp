@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "base_monster.h"
+#include "BaseMonster.h"
 #include "../../../AISpace.h"
 #include "../../../Hit.h"
 #include "../../../PHDestroyable.h"
@@ -43,7 +43,7 @@ void CBaseMonster::Load(pcstr section)
 
 	m_pPhysics_support->in_Load(section);
 
-	SetfHealth((f32) pSettings->r_u32(section, "Health"));
+	SetfHealth((f32)pSettings->r_u32(section, "Health"));
 
 	m_controlled = smart_cast<CControlledEntityBase*>(this);
 
@@ -61,8 +61,8 @@ void CBaseMonster::Load(pcstr section)
 }
 
 // if sound is absent just do not load that one
-#define LOAD_SOUND(sound_name,_type,_prior,_mask,_int_type)		\
-	if (pSettings->line_exist(section,sound_name))						\
+#define LOAD_SOUND(sound_name,_type,_prior,_mask,_int_type)\
+	if (pSettings->line_exist(section,sound_name))\
 		sound().add(pSettings->r_string(section,sound_name), DEFAULT_SAMPLE_COUNT,_type,_prior,u32(_mask),_int_type,"bip01_head");
 
 void CBaseMonster::reload(pcstr section)
@@ -163,7 +163,7 @@ void CBaseMonster::reinit( )
 
 #ifdef DEBUG
 	m_show_debug_info = 0;
-#endif
+#endif // def DEBUG
 
 }
 
@@ -174,7 +174,7 @@ BOOL CBaseMonster::net_Spawn(CSE_Abstract* DC)
 		return FALSE;
 	}
 
-	CSE_Abstract* e = (CSE_Abstract*) (DC);
+	CSE_Abstract* e = (CSE_Abstract*)(DC);
 	m_pPhysics_support->in_NetSpawn(e);//этот выззов с послудующими не связан, 
 	//но там есть хак - запуск анимации на всякий случай если никто больше ее не запустил 
 	//поэтому в основной версии на всякий случай пусть будет здесь, 
@@ -182,7 +182,7 @@ BOOL CBaseMonster::net_Spawn(CSE_Abstract* DC)
 
 	R_ASSERT2(ai( ).get_level_graph( ) && ai( ).get_cross_table( ) && (ai( ).level_graph( ).level_id( ) != u32(-1)), "There is no AI-Map, level graph, cross table, or graph is not compiled into the game graph!");
 
-	monster_squad( ).register_member((u8) g_Team( ), (u8) g_Squad( ), (u8) g_Group( ), this);
+	monster_squad( ).register_member((u8)g_Team( ), (u8)g_Squad( ), (u8)g_Group( ), this);
 
 	settings_overrides( );
 
@@ -208,16 +208,16 @@ void CBaseMonster::net_Destroy( )
 
 	m_pPhysics_support->in_NetDestroy( );
 
-	monster_squad( ).remove_member((u8) g_Team( ), (u8) g_Squad( ), (u8) g_Group( ), this);
+	monster_squad( ).remove_member((u8)g_Team( ), (u8)g_Squad( ), (u8)g_Group( ), this);
 
 #ifdef DEBUG
 	m_show_debug_info = 0;
-#endif
+#endif // def DEBUG
 
 }
 
 #define READ_SETTINGS(var,name,method,ltx,section) {\
-	if (ltx == pSettings) var = ltx->method(section,name); \
+	if (ltx == pSettings) var = ltx->method(section,name);\
 	else if (ltx->line_exist(section,name)) var = ltx->method(section,name);\
 }
 
@@ -243,8 +243,8 @@ void CBaseMonster::settings_read(CIniFile* ini, pcstr section, SMonsterSettings&
 	READ_SETTINGS(data.m_dwDistantIdleSndDelay, "distant_idle_sound_delay", r_u32, ini, section);
 	READ_SETTINGS(data.m_fDistantIdleSndRange, "distant_idle_sound_range", r_float, ini, section);
 
-	READ_SETTINGS(data.m_fEatFreq, "eat_freq", r_float, ini, section);			// частота укусов в сек
-	READ_SETTINGS(data.m_fEatSlice, "eat_slice", r_float, ini, section);		// увеличение сытости при 1 укусе
+	READ_SETTINGS(data.m_fEatFreq, "eat_freq", r_float, ini, section);						// частота укусов в сек
+	READ_SETTINGS(data.m_fEatSlice, "eat_slice", r_float, ini, section);					// увеличение сытости при 1 укусе
 	READ_SETTINGS(data.m_fEatSliceWeight, "eat_slice_weight", r_float, ini, section);		// уменьшение еды у трупа
 
 	READ_SETTINGS(data.m_legs_number, "LegsCount", r_u8, ini, section);

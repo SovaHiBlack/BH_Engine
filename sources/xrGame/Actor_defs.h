@@ -82,7 +82,7 @@ namespace ACTOR_DEFS
 	};
 
 	//------------------------------
-	struct net_update
+	struct SNetUpdate
 	{
 		u32				dwTimeStamp;			// server(game) timestamp
 		f32				o_model;				// model yaw
@@ -94,7 +94,7 @@ namespace ACTOR_DEFS
 		s32				weapon;
 		f32				fHealth;
 
-		net_update( )
+		SNetUpdate( )
 		{
 			dwTimeStamp = 0;
 			p_pos.set(0.0f, 0.0f, 0.0f);
@@ -102,7 +102,7 @@ namespace ACTOR_DEFS
 			p_velocity.set(0.0f, 0.0f, 0.0f);
 		}
 
-		void lerp(net_update& A, net_update& B, f32 f);
+		void lerp(SNetUpdate& A, SNetUpdate& B, f32 f);
 	};
 
 	///////////////////////////////////////////////////////

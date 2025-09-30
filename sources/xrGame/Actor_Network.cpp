@@ -131,17 +131,17 @@ void	CActor::ConvState(u32 mstate_rl, string128* buf)
 void CActor::net_Export(CNetPacket& P)					// export to server
 {
 	//CSE_ALifeCreatureAbstract
-	u8					flags = 0;
+	u8 flags = 0;
 	P.w_float(GetfHealth( ));
 	P.w_u32(Level( ).timeServer( ));
 	P.w_u8(flags);
-	fVector3				p = Position( );
-	P.w_vec3(p);//Position());
+	fVector3 p = Position( );
+	P.w_vec3(p);
 
-	P.w_float /*w_angle8*/(angle_normalize(r_model_yaw)); //Device.vCameraDirection.getH());//
-	P.w_float /*w_angle8*/(angle_normalize(unaffected_r_torso.yaw));//(r_torso.yaw);
-	P.w_float /*w_angle8*/(angle_normalize(unaffected_r_torso.pitch));//(r_torso.pitch);
-	P.w_float /*w_angle8*/(angle_normalize(unaffected_r_torso.roll));//(r_torso.roll);
+	P.w_float (angle_normalize(r_model_yaw)); 
+	P.w_float (angle_normalize(unaffected_r_torso.yaw));
+	P.w_float (angle_normalize(unaffected_r_torso.pitch));
+	P.w_float (angle_normalize(unaffected_r_torso.roll));
 	P.w_u8(u8(g_Team( )));
 	P.w_u8(u8(g_Squad( )));
 	P.w_u8(u8(g_Group( )));
@@ -151,12 +151,11 @@ void CActor::net_Export(CNetPacket& P)					// export to server
 //	P.w_u32				(m_dwMoney);
 
 	//CSE_ALifeCreatureActor
-
 	u16 ms = (u16)(mstate_real & 0x0000ffff);
 	P.w_u16(u16(ms));
 	P.w_sdir(NET_SavedAccel);
-	fVector3				v = character_physics_support( )->movement( )->GetVelocity( );
-	P.w_sdir(v);//m_PhysicMovementControl.GetVelocity());
+	fVector3 v = character_physics_support( )->movement( )->GetVelocity( );
+	P.w_sdir(v);
 	P.w_float(g_Radiation( ));
 
 	P.w_u8(u8(inventory( ).GetActiveSlot( )));
@@ -364,7 +363,7 @@ void CActor::net_Import(CNetPacket& P)					// import from server
 
 void CActor::net_Import_Base(CNetPacket& P)
 {
-	net_update			N;
+	SNetUpdate			N;
 
 	u8					flags;
 	u16					tmp;
@@ -495,7 +494,7 @@ void CActor::net_Import_Base_proceed( )
 		return;
 	}
 
-	net_update N = NET.back( );
+	SNetUpdate N = NET.back( );
 }
 
 void CActor::net_Import_Physic(CNetPacket& P)
@@ -1028,7 +1027,7 @@ void CActor::PH_B_CrPr( )	// actions & operations before physic correction-predi
 		else
 		{
 			net_update_A N_A = NET_A.back( );
-			net_update N = NET.back( );
+			SNetUpdate N = NET.back( );
 
 			NET_Last = N;
 			///////////////////////////////////////////////

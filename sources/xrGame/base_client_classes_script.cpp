@@ -123,9 +123,9 @@ void CObjectScript::script_register		(lua_State *L)
 
 			.def("net_Export",			&CGameObject::net_Export,		&CGameObjectWrapper::net_Export_static)
 			.def("net_Import",			&CGameObject::net_Import,		&CGameObjectWrapper::net_Import_static)
-			.def("net_Spawn",			&CGameObject::net_Spawn,	&CGameObjectWrapper::net_Spawn_static)
+			.def("net_Spawn",			&CGameObject::net_Spawn,		&CGameObjectWrapper::net_Spawn_static)
 
-			.def("use",					&CGameObject::use,	&CGameObjectWrapper::use_static)
+			.def("use",					&CGameObject::use,				&CGameObjectWrapper::use_static)
 
 //			.def("setVisible",			&CGameObject::setVisible)
 			.def("getVisible",			&CGameObject::getVisible)

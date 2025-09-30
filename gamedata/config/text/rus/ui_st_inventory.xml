@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="windows-1251" ?>
 <string_table>
-	<string id="st_activate_artefact">
-		<text>активировать артефакт</text>
-	</string>
 	<string id="st_attach_gl_to_rifle">
 		<text>прицепить гранатомет к винтовке</text>
 	</string>
-	<string id="st_attach_scope_to_pistol">
-		<text>прицепить прицел к пистолету</text>
-	</string>
 	<string id="st_attach_scope_to_rifle">
 		<text>прицепить прицел к винтовке</text>
+	</string>
+	<string id="st_attach_scope_to_pistol">
+		<text>прицепить прицел к пистолету</text>
 	</string>
 	<string id="st_attach_silencer_to_pistol">
 		<text>прицепить глушитель к пистолету</text>
@@ -263,5 +260,8 @@
 	</string>
 	<string id="ui_st_err_sb_master_server_conn_fail">
 		<text>Невозможно присоединиться к мастер-серверу</text>
+	</string>
+	<string id="st_activate_artefact">
+		<text>активировать артефакт</text>
 	</string>
 </string_table>

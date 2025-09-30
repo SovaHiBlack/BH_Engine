@@ -613,4 +613,4 @@ add_to_type_list(CStalker)
 #undef script_type_list
 #define script_type_list save_type_list(CStalker)
 
-#include "ai_stalker_inline.h"
+#include "Stalker_inline.h"

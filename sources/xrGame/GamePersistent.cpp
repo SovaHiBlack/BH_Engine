@@ -19,7 +19,7 @@
 #include "..\XR_3DA\CameraManager.h"
 
 #ifndef MASTER_GOLD
-#	include "custommonster.h"
+#	include "CustomMonster.h"
 #endif // MASTER_GOLD
 
 #include "ai_debug.h"

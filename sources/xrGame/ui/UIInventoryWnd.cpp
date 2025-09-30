@@ -1,25 +1,17 @@
 #include "stdafx.h"
 
-#include "UIInventoryWnd.h"//
-
-//#include "UIXml.h"
+#include "UIInventoryWnd.h"
 #include "UIXmlInit.h"
 #include "../StringTable.h"
-
 #include "../Actor.h"
 #include "UIGame.h"
 #include "../hudmanager.h"
-
 #include "../CustomOutfit.h"
-
 #include "../Weapon.h"
-
 #include "../script_process.h"
-
 #include "../EatableItem.h"
 #include "../Inventory.h"
-
-#include "UIInventoryUtilities.h"//
+#include "UIInventoryUtilities.h"
 
 using namespace InventoryUtilities;
 
@@ -27,18 +19,16 @@ using namespace InventoryUtilities;
 #include "../Level.h"
 #include "../game_base_space.h"
 #include "../EntityCondition.h"
-
 #include "../game_cl_base.h"
 #include "../ActorCondition.h"
 #include "UIDragDropListEx.h"
-#include "UIOutfitSlot.h"//
+#include "UIOutfitSlot.h"
 #include "UI3tButton.h"
-
 #include "../xr_level_controller.h"
 #include <dinput.h>
 
-#define				INVENTORY_ITEM_XML		"inventory_item.xml"
-#define				INVENTORY_XML			"inventory_new.xml"
+#define INVENTORY_ITEM_XML		"inventory_item.xml"
+#define INVENTORY_XML			"inventory_new.xml"
 
 CUIInventoryWnd* g_pInvWnd = NULL;
 
@@ -56,11 +46,11 @@ CUIInventoryWnd::CUIInventoryWnd( )
 
 void CUIInventoryWnd::Init( )
 {
-	CUIXml								uiXml;
+	CUIXml uiXml;
 	bool xml_result = uiXml.Init(CONFIG_PATH, UI_PATH, INVENTORY_XML);
 	R_ASSERT3(xml_result, "file parsing error ", uiXml.m_xml_file_name);
 
-	CUIXmlInit							xml_init;
+	CUIXmlInit xml_init;
 
 	xml_init.InitWindow(uiXml, "main", 0, this);
 
@@ -276,7 +266,7 @@ void CUIInventoryWnd::Update( )
 		}
 
 		// update money
-		string64						sMoney;
+		string64 sMoney;
 		sprintf_s(sMoney, "%d RU", _money);
 		UIMoneyWnd.SetText(sMoney);
 
@@ -365,35 +355,35 @@ void CUIInventoryWnd::DetachAddon(pcstr addon_name)
 	}
 }
 
-void CUIInventoryWnd::SendEvent_ActivateSlot(PIItem	pItem)
+void CUIInventoryWnd::SendEvent_ActivateSlot(PIItem pItem)
 {
-	CNetPacket						P;
+	CNetPacket P;
 	pItem->object( ).u_EventGen(P, GEG_PLAYER_ACTIVATE_SLOT, pItem->object( ).H_Parent( )->ID( ));
 	P.w_u32(pItem->GetSlot( ));
 	pItem->object( ).u_EventSend(P);
 }
 
-void CUIInventoryWnd::SendEvent_Item2Slot(PIItem	pItem)
+void CUIInventoryWnd::SendEvent_Item2Slot(PIItem pItem)
 {
-	CNetPacket						P;
+	CNetPacket P;
 	pItem->object( ).u_EventGen(P, GEG_PLAYER_ITEM2SLOT, pItem->object( ).H_Parent( )->ID( ));
 	P.w_u16(pItem->object( ).ID( ));
 	pItem->object( ).u_EventSend(P);
 	g_pInvWnd->PlaySnd(eInvItemToSlot);
 }
 
-void CUIInventoryWnd::SendEvent_Item2Belt(PIItem	pItem)
+void CUIInventoryWnd::SendEvent_Item2Belt(PIItem pItem)
 {
-	CNetPacket						P;
+	CNetPacket P;
 	pItem->object( ).u_EventGen(P, GEG_PLAYER_ITEM2BELT, pItem->object( ).H_Parent( )->ID( ));
 	P.w_u16(pItem->object( ).ID( ));
 	pItem->object( ).u_EventSend(P);
 	g_pInvWnd->PlaySnd(eInvItemToBelt);
 }
 
-void CUIInventoryWnd::SendEvent_Item2Ruck(PIItem	pItem)
+void CUIInventoryWnd::SendEvent_Item2Ruck(PIItem pItem)
 {
-	CNetPacket						P;
+	CNetPacket P;
 	pItem->object( ).u_EventGen(P, GEG_PLAYER_ITEM2RUCK, pItem->object( ).H_Parent( )->ID( ));
 	P.w_u16(pItem->object( ).ID( ));
 	pItem->object( ).u_EventSend(P);
@@ -401,13 +391,13 @@ void CUIInventoryWnd::SendEvent_Item2Ruck(PIItem	pItem)
 	g_pInvWnd->PlaySnd(eInvItemToRuck);
 }
 
-void CUIInventoryWnd::SendEvent_Item_Drop(PIItem	pItem)
+void CUIInventoryWnd::SendEvent_Item_Drop(PIItem pItem)
 {
 	pItem->SetDropManual(TRUE);
 
 	if (OnClient( ))
 	{
-		CNetPacket					P;
+		CNetPacket P;
 		pItem->object( ).u_EventGen(P, GE_OWNERSHIP_REJECT, pItem->object( ).H_Parent( )->ID( ));
 		P.w_u16(pItem->object( ).ID( ));
 		pItem->object( ).u_EventSend(P);
@@ -416,10 +406,10 @@ void CUIInventoryWnd::SendEvent_Item_Drop(PIItem	pItem)
 	g_pInvWnd->PlaySnd(eInvDropItem);
 }
 
-void CUIInventoryWnd::SendEvent_Item_Eat(PIItem	pItem)
+void CUIInventoryWnd::SendEvent_Item_Eat(PIItem pItem)
 {
 	R_ASSERT(pItem->m_pCurrentInventory == m_pInv);
-	CNetPacket						P;
+	CNetPacket P;
 	pItem->object( ).u_EventGen(P, GEG_PLAYER_ITEM_EAT, pItem->object( ).H_Parent( )->ID( ));
 	P.w_u16(pItem->object( ).ID( ));
 	pItem->object( ).u_EventSend(P);

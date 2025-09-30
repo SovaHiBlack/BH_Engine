@@ -231,9 +231,9 @@ public:
 	virtual void			OnItemDropUpdate( );
 	virtual bool			use_bolts( ) const
 	{
-		return(true);
+		return true;
 	}
-	virtual	void			spawn_supplies( );
+	virtual void			spawn_supplies( );
 
 	CInventoryItem* CInventoryOwner::GetCurrentOutfit( ) const;
 
@@ -272,21 +272,21 @@ private:
 
 public:
 	IC		CTradeParameters& trade_parameters( ) const;
-	virtual	pcstr				trade_section( ) const;
+	virtual pcstr				trade_section( ) const;
 	f32				deficit_factor(const shared_str& section) const;
 	void				buy_supplies(CIniFile& ini_file, pcstr section);
 	void				sell_useless_items( );
-	virtual	void				on_before_sell(CInventoryItem* item)
+	virtual void				on_before_sell(CInventoryItem* item)
 	{ }
-	virtual	void				on_before_buy(CInventoryItem* item)
+	virtual void				on_before_buy(CInventoryItem* item)
 	{ }
 	virtual bool				can_use_dynamic_lights( )
 	{
 		return true;
 	}
-	virtual	bool				use_default_throw_force( );
-	virtual	f32				missile_throw_force( );
-	virtual	bool				use_throw_randomness( );
+	virtual bool				use_default_throw_force( );
+	virtual f32				missile_throw_force( );
+	virtual bool				use_throw_randomness( );
 	virtual bool				NeedOsoznanieMode( )
 	{
 		return m_need_osoznanie_mode != FALSE;

@@ -11,7 +11,7 @@
 #include "alife_monster_detail_path_manager.h"
 #include "alife_monster_patrol_path_manager.h"
 #include "object_broker.h"
-#include "movement_manager_space.h"
+#include "MovementManager_space.h"
 
 CALifeMonsterMovementManager::CALifeMonsterMovementManager	(object_type *object)
 {

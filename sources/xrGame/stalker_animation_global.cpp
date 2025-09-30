@@ -13,7 +13,7 @@
 #include "FoodItem.h"
 #include "property_storage.h"
 #include "stalker_movement_manager.h"
-#include "ai/stalker/ai_stalker_space.h"
+#include "ai/stalker/Stalker_space.h"
 #include "stalker_animation_data.h"
 #include "Weapon.h"
 #include "Missile.h"

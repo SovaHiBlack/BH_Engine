@@ -104,8 +104,8 @@ public:
 
 	virtual void	UpdateCL( );
 	virtual void	net_Destroy( );
-	virtual void			net_Export(CNetPacket& P);
-	virtual void			net_Import(CNetPacket& P);
+	virtual void	net_Export(CNetPacket& P);
+	virtual void	net_Import(CNetPacket& P);
 
 	virtual void	OnH_A_Chield( );
 

@@ -202,7 +202,7 @@ public:
 	{
 		return m_fCondition;
 	}
-	virtual	f32				GetConditionToShow( ) const
+	virtual f32				GetConditionToShow( ) const
 	{
 		return GetCondition( );
 	}
@@ -318,7 +318,7 @@ public:
 	IC	CPhysicsShellHolder& object( ) const
 	{
 		VERIFY(m_object);
-		return		(*m_object);
+		return *m_object;
 	}
 	virtual void				on_activate_physic_shell( )
 	{
@@ -330,10 +330,10 @@ protected:
 	f32						m_holder_fov_modifier;
 
 public:
-	virtual	void				modify_holder_params(f32& range, f32& fov) const;
+	virtual void				modify_holder_params(f32& range, f32& fov) const;
 
 protected:
-	IC	CInventoryOwner& inventory_owner( ) const;
+	IC CInventoryOwner& inventory_owner( ) const;
 
 private:
 	CPhysicsShellHolder* m_object;

@@ -15,7 +15,7 @@
 #include "item_manager.h"
 #include "danger_manager.h"
 #include "ai/stalker/Stalker.h"
-#include "ai/stalker/ai_stalker_impl.h"
+#include "ai/stalker/Stalker_impl.h"
 #include "agent_manager.h"
 #include "agent_member_manager.h"
 #include "memory_space_impl.h"

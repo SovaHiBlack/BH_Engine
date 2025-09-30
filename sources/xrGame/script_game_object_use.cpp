@@ -13,7 +13,7 @@
 #include "GameObject_space.h"
 #include "memory_manager.h"
 #include "enemy_manager.h"
-#include "movement_manager.h"
+#include "MovementManager.h"
 #include "patrol_path_manager.h"
 #include "PHCommander.h"
 #include "PHScriptCall.h"

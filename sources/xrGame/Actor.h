@@ -596,9 +596,9 @@ public:
 	virtual	BOOL						net_SaveRelevant( );
 
 protected:
-	xr_deque<net_update>	NET;
+	xr_deque<SNetUpdate>	NET;
 	fVector3					NET_SavedAccel;
-	net_update				NET_Last;
+	SNetUpdate				NET_Last;
 	BOOL					NET_WasInterpolating;	// previous update was by interpolation or by extrapolation
 	u32						NET_Time;				// server time of last update
 

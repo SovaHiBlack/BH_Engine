@@ -29,7 +29,7 @@
 #include "hit_memory_manager.h"
 #include "sight_manager.h"
 #include "stalker_movement_manager.h"
-#include "movement_manager_space.h"
+#include "MovementManager_space.h"
 #include "detail_path_manager_space.h"
 #include "LevelDebug.h"
 #include "ai/monsters/BaseMonster/BaseMonster.h"

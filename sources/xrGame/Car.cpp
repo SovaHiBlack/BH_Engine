@@ -517,20 +517,14 @@ void	CCar::renderable_Render( )
 		m_car_weapon->Render_internal( );
 }
 
-void	CCar::net_Export(CNetPacket& P)
+void CCar::net_Export(CNetPacket& P)
 {
 	inherited::net_Export(P);
-	//	P.w_u32 (Level().timeServer());
-	//	P.w_u16 (0);
 }
 
-void	CCar::net_Import(CNetPacket& P)
+void CCar::net_Import(CNetPacket& P)
 {
 	inherited::net_Import(P);
-	//	u32 TimeStamp = 0;
-	//	P.w_u32 (TimeStamp);
-	//	u16 NumItems = 0;
-	//	P.w_u32 (NumItems);
 }
 
 void	CCar::OnHUDDraw(CCustomHUD* /**hud/**/)
@@ -667,22 +661,11 @@ bool CCar::attach_Actor(CGameObject* actor)
 	OnCameraChange(ectFirst);
 	PPhysicsShell( )->Enable( );
 	PPhysicsShell( )->add_ObjectContactCallback(ActorObstacleCallback);
-	//	VisualUpdate();
 	processing_activate( );
 	ReleaseHandBreak( );
-	//	HUD().GetUI()->UIMainIngameWnd->CarPanel().Show(true);
-	//	HUD().GetUI()->UIMainIngameWnd->CarPanel().SetCarHealth(fEntityHealth/100.f);
-		//HUD().GetUI()->UIMainIngameWnd.ShowBattery(true);
-		//CBoneData&	bone_data=K->LL_GetData(id);
-		//fMatrix4x4 driver_pos_tranform;
-		//driver_pos_tranform.setHPB(bone_data.bind_hpb.x,bone_data.bind_hpb.y,bone_data.bind_hpb.z);
-		//driver_pos_tranform.c.set(bone_data.bind_translate);
-		//m_sits_transforms.push_back(driver_pos_tranform);
-		//H_SetParent(actor);
 
 	return true;
 }
-
 
 bool CCar::is_Door(u16 id, xr_map<u16, SDoor>::iterator& i)
 {

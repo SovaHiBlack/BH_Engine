@@ -53,7 +53,7 @@ public:
 	}
 	bool operator () (const INFO_DATA& data) const
 	{
-		return data.info_id == element;
+		return (data.info_id == element);
 	}
 
 private:
@@ -67,13 +67,19 @@ bool CInventoryOwner::OnReceiveInfo(shared_str info_id) const
 	KNOWN_INFO_VECTOR& known_info = m_known_info_registry->registry( ).objects( );
 	KNOWN_INFO_VECTOR_IT it = std::find_if(known_info.begin( ), known_info.end( ), CFindByIDPred(info_id));
 	if (known_info.end( ) == it)
+	{
 		known_info.push_back(INFO_DATA(info_id, Level( ).GetGameTime( )));
+	}
 	else
+	{
 		return false;
+	}
 
 #ifdef DEBUG
 	if (psAI_Flags.test(aiInfoPortion))
+	{
 		Msg("[%s] Received Info [%s]", Name( ), *info_id);
+	}
 #endif
 
 	//Запустить скриптовый callback
@@ -82,7 +88,6 @@ bool CInventoryOwner::OnReceiveInfo(shared_str info_id) const
 
 	//	SCRIPT_CALLBACK_EXECUTE_2(*m_pInfoCallback, pThisGameObject->lua_game_object(), info_index);
 	//	pThisGameObject->callback(GameObject::eInventoryInfo)(pThisGameObject->lua_game_object(), *info_id);
-
 
 	CInfoPortion info_portion;
 	info_portion.Load(info_id);
@@ -142,14 +147,15 @@ void CInventoryOwner::OnDisableInfo(shared_str info_id) const
 void CInventoryOwner::TransferInfo(shared_str info_id, bool add_info) const
 {
 	VERIFY(info_id.size( ));
-	const CObject* pThisObject = smart_cast<const CObject*>(this); VERIFY(pThisObject);
+	const CObject* pThisObject = smart_cast<const CObject*>(this);
+	VERIFY(pThisObject);
 
 	//отправляем от нашему PDA пакет информации с номером
-	CNetPacket		P;
+	CNetPacket P;
 	CGameObject::u_EventGen(P, GE_INFO_TRANSFER, pThisObject->ID( ));
 	P.w_u16(pThisObject->ID( ));					//отправитель
 	P.w_stringZ(info_id);							//сообщение
-	P.w_u8(add_info ? 1 : 0);							//добавить/удалить информацию
+	P.w_u8(add_info ? 1 : 0);						//добавить/удалить информацию
 	CGameObject::u_EventSend(P);
 
 	CInfoPortion info_portion;

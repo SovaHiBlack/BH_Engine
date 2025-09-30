@@ -20,7 +20,7 @@
 #	include "ef_primary.h"
 #	include "alife_simulator.h"
 #	include "alife_graph_registry.h"
-#	include "movement_manager_space.h"
+#	include "MovementManager_space.h"
 #	include "alife_smart_terrain_registry.h"
 #	include "alife_time_manager.h"
 #	include "date_time.h"

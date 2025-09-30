@@ -8,12 +8,12 @@
 
 #include "stdafx.h"
 #include "sight_manager.h"
-#include "custommonster.h"
+#include "CustomMonster.h"
 #include "ai/stalker/Stalker.h"
 #include "detail_path_manager.h"
 #include "level_graph.h"
 #include "stalker_movement_manager.h"
-#include "ai/stalker/ai_stalker_space.h"
+#include "ai/stalker/Stalker_space.h"
 #include "AISpace.h"
 #include "Profiler.h"
 

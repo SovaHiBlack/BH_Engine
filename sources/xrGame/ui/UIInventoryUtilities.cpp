@@ -22,9 +22,9 @@ const pcstr ratingField = "rating_names";
 const pcstr reputationgField = "reputation_names";
 const pcstr goodwillField = "goodwill_names";
 
-ref_shader	g_EquipmentIconsShader = NULL;
+ref_shader g_EquipmentIconsShader = NULL;
 
-typedef				std::pair<CHARACTER_RANK_VALUE, shared_str>	CharInfoStringID;
+typedef std::pair<CHARACTER_RANK_VALUE, shared_str>	CharInfoStringID;
 DEF_MAP(CharInfoStrings, CHARACTER_RANK_VALUE, shared_str);
 
 CharInfoStrings* charInfoReputationStrings = NULL;
@@ -80,7 +80,7 @@ bool InventoryUtilities::GreaterRoomInRuck(PIItem item1, PIItem item2)
 
 bool InventoryUtilities::FreeRoom_inBelt(TIItemContainer& item_list, PIItem _item, s32 width, s32 height)
 {
-	bool* ruck_room = (bool*) alloca(width * height);
+	bool* ruck_room = (bool*)alloca(width * height);
 
 	s32 i;
 	s32 j;
@@ -222,7 +222,7 @@ const shared_str InventoryUtilities::GetTimeAsString(ALife::_TIME_ID time, ETime
 		break;
 		case etpTimeToSecondsAndDay:
 		{
-			s32 total_day = (s32) (time / (1000 * 60 * 60 * 24));
+			s32 total_day = (s32)(time / (1000 * 60 * 60 * 24));
 			sprintf_s(bufTime, sizeof(bufTime), "%dd %02i%c%02i%c%02i", total_day, hours, timeSeparator, mins, timeSeparator, secs);
 		}
 		break;

@@ -14,7 +14,7 @@
 #include "hudmanager.h"
 #include "game_graph.h"
 #include "game_sv_single.h"
-#include "custommonster.h"
+#include "CustomMonster.h"
 #include "ai/stalker/Stalker.h"
 #include "xrserver_objects_alife_monsters.h"
 #include "cover_point.h"
@@ -35,7 +35,7 @@
 #include "memory_space.h"
 #include "Level.h"
 #include "ai_object_location.h"
-#include "movement_manager.h"
+#include "MovementManager.h"
 #include "graph_engine.h"
 #include "DebugRenderer.h"
 

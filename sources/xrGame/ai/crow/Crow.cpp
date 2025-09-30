@@ -433,7 +433,7 @@ void CCrow::net_Export(CNetPacket& P)					// export to server
 	// export 
 	R_ASSERT(Local( ));
 
-	u8					flags = 0;
+	u8 flags = 0;
 	P.w_float(GetfHealth( ));
 
 	P.w_float(0);
@@ -443,14 +443,14 @@ void CCrow::net_Export(CNetPacket& P)					// export to server
 	P.w_u32(Level( ).timeServer( ));
 	P.w_u8(flags);
 
-	f32				yaw;
+	f32 yaw;
 	f32 pitch;
 	f32 bank;
 	XFORM( ).getHPB(yaw, pitch, bank);
-	P.w_float /*w_angle8*/(yaw);
-	P.w_float /*w_angle8*/(yaw);
-	P.w_float /*w_angle8*/(pitch);
-	P.w_float /*w_angle8*/(0);
+	P.w_float (yaw);
+	P.w_float (yaw);
+	P.w_float (pitch);
+	P.w_float (0);
 	P.w_u8(u8(g_Team( )));
 	P.w_u8(u8(g_Squad( )));
 	P.w_u8(u8(g_Group( )));
@@ -461,7 +461,7 @@ void CCrow::net_Import(CNetPacket& P)
 	// import
 	R_ASSERT(Remote( ));
 
-	u8					flags;
+	u8 flags;
 
 	f32 health;
 	P.r_float(health);
@@ -476,15 +476,15 @@ void CCrow::net_Import(CNetPacket& P)
 	P.r_u32(dwDummy);
 	P.r_u8(flags);
 
-	f32				yaw;
-	f32				pitch;
-	f32				bank = 0;
-	f32				roll = 0;
+	f32 yaw;
+	f32 pitch;
+	f32 bank = 0.0f;
+	f32 roll = 0.0f;
 
-	P.r_float /*r_angle8*/(yaw);
-	P.r_float /*r_angle8*/(yaw);
-	P.r_float /*r_angle8*/(pitch);
-	P.r_float /*r_angle8*/(roll);
+	P.r_float (yaw);
+	P.r_float (yaw);
+	P.r_float (pitch);
+	P.r_float (roll);
 
 	id_Team = P.r_u8( );
 	id_Squad = P.r_u8( );

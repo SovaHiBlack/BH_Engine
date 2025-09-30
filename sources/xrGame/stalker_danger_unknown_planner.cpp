@@ -9,7 +9,7 @@
 #include "stdafx.h"
 #include "stalker_danger_unknown_planner.h"
 #include "ai/stalker/Stalker.h"
-#include "ai/stalker/ai_stalker_space.h"
+#include "ai/stalker/Stalker_space.h"
 #include "script_game_object.h"
 #include "stalker_danger_property_evaluators.h"
 #include "agent_manager.h"

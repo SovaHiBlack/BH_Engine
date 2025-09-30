@@ -8,7 +8,7 @@
 #include "stdafx.h"
 
 #include "Stalker.h"
-#include "ai_stalker_space.h"
+#include "Stalker_space.h"
 #include "../../Bolt.h"
 #include "../../Inventory.h"
 #include "../../CharacterInfo.h"

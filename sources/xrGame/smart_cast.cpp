@@ -14,7 +14,7 @@
 #		include "alife_space.h"
 #		include "Hit.h"
 #		include "Actor.h"
-#		include "custommonster.h"
+#		include "CustomMonster.h"
 #		include "ai/stalker/Stalker.h"
 #		include "ui/UIWindow.h"
 #		include "CustomZone.h"

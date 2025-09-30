@@ -15,7 +15,7 @@
 #include "detail_path_manager.h"
 #include "level_location_selector.h"
 #include "level_path_manager.h"
-#include "movement_manager_space.h"
+#include "MovementManager_space.h"
 #include "detail_path_manager_space.h"
 #include "EntityCondition.h"
 #include "ai_object_location.h"

@@ -1,5 +1,5 @@
 ////////////////////////////////////////////////////////////////////////////
-//	Module 		: ai_stalker_impl.h
+//	Module 		: Stalker_impl.h
 //	Created 	: 25.02.2003
 //  Modified 	: 25.02.2003
 //	Author		: Dmitriy Iassenev

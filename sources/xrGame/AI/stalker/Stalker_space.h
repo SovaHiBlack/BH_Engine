@@ -1,14 +1,9 @@
-////////////////////////////////////////////////////////////////////////////
-//	Module 		: ai_stalker_space.h
-//	Created 	: 28.03.2003
-//  Modified 	: 28.03.2003
-//	Author		: Dmitriy Iassenev
+//	Module 		: Stalker_space.h
 //	Description : Stalker types and structures
-////////////////////////////////////////////////////////////////////////////
 
 #pragma once
 
-#define	MAX_HEAD_TURN_ANGLE				(1.f*PI_DIV_4)
+#define	MAX_HEAD_TURN_ANGLE				(1.0f*PI_DIV_4)
 
 namespace StalkerSpace {
 	enum EStalkerSounds {
@@ -70,7 +65,7 @@ namespace StalkerSpace {
 		eStalkerSoundMaskTolls						= eStalkerSoundMaskDanger,
 		eStalkerSoundMaskGrenadeAlarm				= eStalkerSoundMaskDanger,
 		eStalkerSoundMaskFriendlyGrenadeAlarm		= eStalkerSoundMaskDanger,
-		eStalkerSoundMaskDummy						= u32(-1),
+		eStalkerSoundMaskDummy						= u32(-1)
 	};
 
 	enum EBodyAction {

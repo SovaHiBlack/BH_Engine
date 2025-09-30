@@ -10,7 +10,7 @@
 
 #include "object_manager.h"
 #include "EntityAlive.h"
-#include "custommonster.h"
+#include "CustomMonster.h"
 #include "script_callback_ex.h"
 
 class CStalker;

@@ -12,7 +12,7 @@ class CInventoryItemObject : public CInventoryItem, public CPhysicItem
 {
 public:
 	CInventoryItemObject( );
-	virtual					~CInventoryItemObject( );
+	virtual ~CInventoryItemObject( );
 	virtual DLL_Pure* _construct( );
 
 public:

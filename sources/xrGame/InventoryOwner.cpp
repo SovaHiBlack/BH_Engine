@@ -228,7 +228,10 @@ void CInventoryOwner::UpdateInventoryOwner(u32 deltaT)
 		//если мы умерли, то тоже не говорить
 		CEntityAlive* pOurEntityAlive = smart_cast<CEntityAlive*>(this);
 		R_ASSERT(pOurEntityAlive);
-		if (!pOurEntityAlive->g_Alive( )) StopTalk( );
+		if (!pOurEntityAlive->g_Alive( ))
+		{
+			StopTalk( );
+		}
 	}
 }
 
@@ -342,7 +345,6 @@ f32 CInventoryOwner::GetWeaponAccuracy( ) const
 f32 CInventoryOwner::MaxCarryWeight( ) const
 {
 	f32 ret = inventory( ).GetMaxWeight( );
-
 	const CCustomOutfit* outfit = GetOutfit( );
 	if (outfit)
 	{

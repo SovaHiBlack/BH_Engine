@@ -26,7 +26,7 @@
 #include "../../Inventory.h"
 #include "../../object_handler_planner.h"
 #include "../../stalker_movement_manager.h"
-#include "../../movement_manager_space.h"
+#include "../../MovementManager_space.h"
 #include "../../patrol_path_manager.h"
 #include "../../level_path_manager.h"
 #include "../../game_path_manager.h"

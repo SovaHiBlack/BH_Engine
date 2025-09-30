@@ -1,13 +1,8 @@
-////////////////////////////////////////////////////////////////////////////
-//	Module 		: movement_manager_game.cpp
-//	Created 	: 03.12.2003
-//  Modified 	: 03.12.2003
-//	Author		: Dmitriy Iassenev
+//	Module 		: MovementManager_game.cpp
 //	Description : Movement manager for game paths
-////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
-#include "movement_manager.h"
+#include "MovementManager.h"
 #include "alife_simulator.h"
 #include "alife_graph_registry.h"
 #include "alife_level_registry.h"
@@ -18,7 +13,7 @@
 #include "level_path_manager.h"
 #include "detail_path_manager.h"
 #include "ai_object_location.h"
-#include "custommonster.h"
+#include "CustomMonster.h"
 #include "level_path_builder.h"
 #include "detail_path_builder.h"
 #include "mt_config.h"
@@ -29,23 +24,27 @@ void CMovementManager::process_game_path( )
 
 	if (m_path_state != ePathStateTeleport)
 	{
-
 		if (!level_path( ).actual( ) && (m_path_state > ePathStateBuildLevelPath))
+		{
 			m_path_state = ePathStateBuildLevelPath;
+		}
 
 		if (!game_path( ).actual( ) && (m_path_state > ePathStateBuildGamePath))
+		{
 			m_path_state = ePathStateBuildGamePath;
+		}
 	}
 
 	switch (m_path_state)
 	{
 		case ePathStateSelectGameVertex:
 		{
-
 			game_selector( ).select_location(object( ).ai_location( ).game_vertex_id( ), game_path( ).m_dest_vertex_id);
 
 			if (game_selector( ).failed( ))
+			{
 				break;
+			}
 
 			m_path_state = ePathStateBuildGamePath;
 
@@ -63,7 +62,7 @@ void CMovementManager::process_game_path( )
 			{
 				Msg("! Cannot build GAME path! (object %s)", *object( ).cName( ));
 				Msg("! CURRENT LEVEL : %s", *Level( ).name( ));
-				fVector3		temp = ai( ).game_graph( ).vertex(object( ).ai_location( ).game_vertex_id( ))->level_point( );
+				fVector3 temp = ai( ).game_graph( ).vertex(object( ).ai_location( ).game_vertex_id( ))->level_point( );
 				Msg("! CURRENT game point position : [%f][%f][%f]", VPUSH(temp));
 				const GameGraph::CVertex* vertex = ai( ).game_graph( ).vertex(game_dest_vertex_id( ));
 				Msg("! TARGET LEVEL : %s", *ai( ).game_graph( ).header( ).level(vertex->level_id( )).name( ));
@@ -83,7 +82,10 @@ void CMovementManager::process_game_path( )
 				const_iterator	I = m_location_manager->vertex_types( ).begin( );
 				const_iterator	E = m_location_manager->vertex_types( ).end( );
 				for (; I != E; ++I)
+				{
 					Msg("!   [%d][%d][%d][%d]", (*I).tMask[0], (*I).tMask[1], (*I).tMask[2], (*I).tMask[3]);
+				}
+
 				break;
 			}
 
@@ -121,14 +123,13 @@ void CMovementManager::process_game_path( )
 
 			if (!accessible(dest_level_vertex_id))
 			{
-				fVector3					dest_pos;
+				fVector3 dest_pos;
 				dest_level_vertex_id = restrictions( ).accessible_nearest(ai( ).level_graph( ).vertex_position(dest_level_vertex_id), dest_pos);
 			}
 
 			if (can_use_distributed_compuations(mtLevelPath))
 			{
 				level_path_builder( ).setup(object( ).ai_location( ).level_vertex_id( ), dest_level_vertex_id);
-
 				break;
 			}
 
@@ -184,13 +185,21 @@ void CMovementManager::process_game_path( )
 		case ePathStatePathVerification:
 		{
 			if (!game_selector( ).actual(object( ).ai_location( ).game_vertex_id( ), path_completed( )))
+			{
 				m_path_state = ePathStateSelectGameVertex;
+			}
 			else if (!game_path( ).actual( ))
+			{
 				m_path_state = ePathStateBuildGamePath;
+			}
 			else if (!level_path( ).actual( ))
+			{
 				m_path_state = ePathStateBuildLevelPath;
+			}
 			else if (!detail( ).actual( ))
+			{
 				m_path_state = ePathStateBuildLevelPath;
+			}
 			else if (detail( ).completed(object( ).Position( ), !detail( ).state_patrol_path( )))
 			{
 				m_path_state = ePathStateContinueLevelPath;
@@ -208,14 +217,19 @@ void CMovementManager::process_game_path( )
 		case ePathStatePathCompleted:
 		{
 			if (!game_selector( ).actual(object( ).ai_location( ).game_vertex_id( ), path_completed( )))
+			{
 				m_path_state = ePathStateSelectGameVertex;
+			}
 			break;
 		}
 		case ePathStateTeleport:
 		{
 			break;
 		}
-		default: NODEFAULT;
+		default:
+		{
+			NODEFAULT;
+		}
 	}
 
 	STOP_PROFILE

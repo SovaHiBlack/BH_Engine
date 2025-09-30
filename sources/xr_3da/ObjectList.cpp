@@ -348,8 +348,10 @@ void CObjectList::net_Import(CNetPacket* Packet)
 
 	while (!Packet->r_eof( ))
 	{
-		u16 ID;		Packet->r_u16(ID);
-		u8  size;	Packet->r_u8(size);
+		u16 ID;
+		Packet->r_u16(ID);
+		u8  size;
+		Packet->r_u8(size);
 		CObject* P = net_Find(u32(ID));
 		if (P)
 		{

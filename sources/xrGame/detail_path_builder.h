@@ -8,7 +8,7 @@
 
 #pragma once
 
-#include "movement_manager.h"
+#include "MovementManager.h"
 #include "detail_path_manager.h"
 
 class CDetailPathBuilder {

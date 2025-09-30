@@ -13,7 +13,7 @@
 #include "stalker_movement_manager.h"
 #include "sight_manager.h"
 #include "object_handler.h"
-#include "movement_manager_space.h"
+#include "MovementManager_space.h"
 #include "detail_path_manager_space.h"
 
 //////////////////////////////////////////////////////////////////////////

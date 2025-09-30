@@ -139,7 +139,7 @@ void CUIInventoryWnd::DropCurrentItem(bool b_all)
 		for (u32 i = 0; i < cnt; ++i)
 		{
 			CUICellItem* itm = CurrentItem( )->PopChild( );
-			PIItem			iitm = (PIItem)itm->m_pData;
+			PIItem iitm = (PIItem)itm->m_pData;
 			SendEvent_Item_Drop(iitm);
 		}
 
@@ -199,7 +199,7 @@ bool CUIInventoryWnd::ToSlot(CUICellItem* itm, bool force_place)
 
 bool CUIInventoryWnd::ToBag(CUICellItem* itm, bool b_use_cursor_pos)
 {
-	PIItem	iitem = (PIItem)itm->m_pData;
+	PIItem iitem = (PIItem)itm->m_pData;
 
 	if (GetInventory( )->CanPutInRuck(iitem))
 	{
@@ -237,7 +237,7 @@ bool CUIInventoryWnd::ToBag(CUICellItem* itm, bool b_use_cursor_pos)
 
 bool CUIInventoryWnd::ToBelt(CUICellItem* itm, bool b_use_cursor_pos)
 {
-	PIItem	iitem = (PIItem)itm->m_pData;
+	PIItem iitem = (PIItem)itm->m_pData;
 	if (GetInventory( )->CanPutInBelt(iitem))
 	{
 		CUIDragDropListEx* old_owner = itm->OwnerList( );

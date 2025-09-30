@@ -9,7 +9,7 @@
 
 #include "stalker_danger_planner.h"
 #include "ai/stalker/Stalker.h"
-#include "ai/stalker/ai_stalker_space.h"
+#include "ai/stalker/Stalker_space.h"
 #include "sound_player.h"
 #include "script_game_object.h"
 #include "stalker_decision_space.h"

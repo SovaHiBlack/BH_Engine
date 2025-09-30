@@ -9,7 +9,7 @@
 
 #include "stalker_kill_wounded_planner.h"
 #include "stalker_kill_wounded_actions.h"
-#include "ai/stalker/ai_stalker_space.h"
+#include "ai/stalker/Stalker_space.h"
 #include "stalker_decision_space.h"
 #include "stalker_property_evaluators.h"
 #include "script_game_object.h"

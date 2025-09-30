@@ -39,13 +39,13 @@ struct net_updateData
 	VIS_POSITION	LastVisPos;
 #endif
 
-	fVector3			IStartPos;
+	fVector3		IStartPos;
 	fQuaternion		IStartRot;
 
-	fVector3			IRecPos;
+	fVector3		IRecPos;
 	fQuaternion		IRecRot;
 
-	fVector3			IEndPos;
+	fVector3		IEndPos;
 	fQuaternion		IEndRot;
 
 	SPHNetState		LastState;
@@ -253,7 +253,11 @@ void CInventoryItem::OnEvent(CNetPacket& P, u16 type)
 			u32 ItemID;
 			P.r_u32(ItemID);
 			CInventoryItem* ItemToAttach = smart_cast<CInventoryItem*>(Level( ).Objects.net_Find(ItemID));
-			if (!ItemToAttach) break;
+			if (!ItemToAttach)
+			{
+				break;
+			}
+
 			Attach(ItemToAttach, true);
 			CActor* pActor = smart_cast<CActor*>(object( ).H_Parent( ));
 			if (pActor && pActor->inventory( ).ActiveItem( ) == this)
@@ -409,7 +413,7 @@ void CInventoryItem::net_Import(CNetPacket& P)
 	N.State.quaternion.z = P.r_float_q8(0.0f, 1.0f);
 	N.State.quaternion.w = P.r_float_q8(0.0f, 1.0f);
 
-	mask_num_items				num_items;
+	mask_num_items num_items;
 	num_items.common = NumItems;
 	NumItems = num_items.num_items;
 
@@ -633,7 +637,7 @@ void CInventoryItem::PH_A_CrPr( )
 	///////////////////////////////////////////////////
 }
 
-extern f32		g_cl_lvInterp;
+extern f32 g_cl_lvInterp;
 
 void CInventoryItem::CalculateInterpolationParams( )
 {
@@ -701,13 +705,13 @@ void CInventoryItem::CalculateInterpolationParams( )
 	TotalPath.sub(P3, P0);
 	f32 TotalLen = TotalPath.magnitude( );
 
-	SPHNetState	State0 = (p->NET_IItem.back( )).State;
-	SPHNetState	State1 = p->PredictedState;
+	SPHNetState State0 = (p->NET_IItem.back( )).State;
+	SPHNetState State1 = p->PredictedState;
 
 	f32 lV0 = State0.linear_vel.magnitude( );
 	f32 lV1 = State1.linear_vel.magnitude( );
 
-	u32		ConstTime = u32((fixed_step - ph_world->m_frame_time) * 1000) + Level( ).GetInterpolationSteps( ) * u32(fixed_step * 1000);
+	u32 ConstTime = u32((fixed_step - ph_world->m_frame_time) * 1000) + Level( ).GetInterpolationSteps( ) * u32(fixed_step * 1000);
 
 	p->m_dwIStartTime = p->m_dwILastUpdateTime;
 
@@ -774,7 +778,6 @@ void CInventoryItem::make_Interpolation( )
 
 	if (!object( ).H_Parent( ) && object( ).getVisible( ) && object( ).m_pPhysicsShell && m_flags.test(FInInterpolation))
 	{
-
 		u32 CurTime = Level( ).timeServer( );
 		if (CurTime >= p->m_dwIEndTime)
 		{
@@ -862,17 +865,17 @@ bool CInventoryItem::can_kill( ) const
 
 CInventoryItem* CInventoryItem::can_kill(CInventory* inventory) const
 {
-	return				(0);
+	return 0;
 }
 
 const CInventoryItem* CInventoryItem::can_kill(const xr_vector<const CGameObject*>& items) const
 {
-	return				(0);
+	return 0;
 }
 
 CInventoryItem* CInventoryItem::can_make_killing(const CInventory* inventory) const
 {
-	return				(0);
+	return 0;
 }
 
 bool CInventoryItem::ready_to_kill( ) const
@@ -939,8 +942,8 @@ void CInventoryItem::UpdateXForm( )
 	fMatrix4x4& mL = V->LL_GetTransform(u16(boneL));
 	fMatrix4x4& mR = V->LL_GetTransform(u16(boneR));
 	// Calculate
-	fMatrix4x4			mRes;
-	fVector3			R;
+	fMatrix4x4 mRes;
+	fVector3 R;
 	fVector3 D;
 	fVector3 N;
 	D.sub(mL.c, mR.c);	D.normalize_safe( );

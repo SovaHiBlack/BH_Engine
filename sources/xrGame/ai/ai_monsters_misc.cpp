@@ -9,7 +9,7 @@
 
 #include "ai_monsters_misc.h"
 #include "../AISpace.h"
-#include "../custommonster.h"
+#include "../CustomMonster.h"
 #include "../ef_storage.h"
 #include "../SeniorityHierarchyHolder.h"
 #include "../TeamHierarchyHolder.h"

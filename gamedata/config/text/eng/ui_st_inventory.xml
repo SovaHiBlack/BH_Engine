@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="windows-1251" ?>
 <string_table>
-	<string id="st_activate_artefact">
-		<text>activate artifact</text>
-	</string>
 	<string id="st_attach_gl_to_rifle">
 		<text>attach grenade launcher to rifle</text>
 	</string>
-	<string id="st_attach_scope_to_pistol">
-		<text>attach scope to pistol</text>
-	</string>
 	<string id="st_attach_scope_to_rifle">
 		<text>attach scope to rifle</text>
+	</string>
+	<string id="st_attach_scope_to_pistol">
+		<text>attach scope to pistol</text>
 	</string>
 	<string id="st_attach_silencer_to_pistol">
 		<text>attach silencer to pistol</text>
@@ -206,5 +203,8 @@
 	</string>
 	<string id="ui_inv_silencer_rifle">
 		<text>Buy silencer for rifle (F)</text>
+	</string>
+	<string id="st_activate_artefact">
+		<text>activate artifact</text>
 	</string>
 </string_table>

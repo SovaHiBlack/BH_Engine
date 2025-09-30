@@ -40,11 +40,11 @@
 #include "../../stalker_movement_manager.h"
 #include "../../EntityCondition.h"
 #include "../../script_engine.h"
-#include "ai_stalker_impl.h"
+#include "Stalker_impl.h"
 #include "../../sound_player.h"
 #include "../../stalker_sound_data.h"
 #include "../../stalker_sound_data_visitor.h"
-#include "ai_stalker_space.h"
+#include "Stalker_space.h"
 #include "../../mt_config.h"
 #include "../../EffectorShot.h"
 #include "../../visual_memory_manager.h"
@@ -473,7 +473,7 @@ void CStalker::net_Export(CNetPacket& P)
 
 	// export last known packet
 	R_ASSERT(!NET.empty( ));
-	net_update& N = NET.back( );
+	SNetUpdate& N = NET.back( );
 //	P.w_float						(inventory().TotalWeight());
 //	P.w_u32							(m_dwMoney);
 
@@ -515,7 +515,7 @@ void CStalker::net_Export(CNetPacket& P)
 void CStalker::net_Import(CNetPacket& P)
 {
 	R_ASSERT(Remote( ));
-	net_update						N;
+	SNetUpdate N;
 
 	u8 flags;
 
@@ -525,20 +525,19 @@ void CStalker::net_Import(CNetPacket& P)
 	f32 health;
 	P.r_float(health);
 	SetfHealth(health);
-//	fEntityHealth = health;
 
 	P.r_u32(N.dwTimeStamp);
 	P.r_u8(flags);
 	P.r_vec3(N.p_pos);
-	P.r_float /*r_angle8*/(N.o_model);
-	P.r_float /*r_angle8*/(N.o_torso.yaw);
-	P.r_float /*r_angle8*/(N.o_torso.pitch);
-	P.r_float /*r_angle8*/(N.o_torso.roll);
+	P.r_float (N.o_model);
+	P.r_float (N.o_torso.yaw);
+	P.r_float (N.o_torso.pitch);
+	P.r_float (N.o_torso.roll);
 	id_Team = P.r_u8( );
 	id_Squad = P.r_u8( );
 	id_Group = P.r_u8( );
 
-	GameGraph::_GRAPH_ID				graph_vertex_id = movement( ).game_dest_vertex_id( );
+	GameGraph::_GRAPH_ID graph_vertex_id = movement( ).game_dest_vertex_id( );
 	P.r(&graph_vertex_id, sizeof(GameGraph::_GRAPH_ID));
 	graph_vertex_id = ai_location( ).game_vertex_id( );
 	P.r(&graph_vertex_id, sizeof(GameGraph::_GRAPH_ID));
@@ -561,7 +560,9 @@ void CStalker::net_Import(CNetPacket& P)
 void CStalker::update_object_handler( )
 {
 	if (!g_Alive( ))
+	{
 		return;
+	}
 
 	try
 	{
@@ -796,7 +797,7 @@ void CStalker::shedule_Update(u32 DT)
 				STOP_PROFILE
 
 					START_PROFILE("stalker/schedule_update/net_update")
-					net_update				uNext;
+					SNetUpdate				uNext;
 				uNext.dwTimeStamp = Level( ).timeServer( );
 				uNext.o_model = movement( ).m_body.current.yaw;
 				uNext.o_torso = movement( ).m_head.current;
@@ -808,7 +809,7 @@ void CStalker::shedule_Update(u32 DT)
 			else
 			{
 				START_PROFILE("stalker/schedule_update/net_update")
-					net_update			uNext;
+					SNetUpdate			uNext;
 				uNext.dwTimeStamp = Level( ).timeServer( );
 				uNext.o_model = movement( ).m_body.current.yaw;
 				uNext.o_torso = movement( ).m_head.current;
@@ -837,7 +838,11 @@ f32 CStalker::Radius( ) const
 {
 	f32 R = inherited::Radius( );
 	CWeapon* W = smart_cast<CWeapon*>(inventory( ).ActiveItem( ));
-	if (W) R += W->Radius( );
+	if (W)
+	{
+		R += W->Radius( );
+	}
+
 	return R;
 }
 
@@ -919,17 +924,19 @@ brain( ).update(update_delta);
 void CStalker::SelectAnimation(const fVector3& view, const fVector3& move, f32 speed)
 {
 	if (!Device.Paused( ))
+	{
 		animation( ).update( );
+	}
 }
 
 const SRotation CStalker::Orientation( ) const
 {
-	return		(movement( ).m_head.current);
+	return movement( ).m_head.current;
 }
 
 const MonsterSpace::SBoneRotation& CStalker::head_orientation( ) const
 {
-	return		(movement( ).head_orientation( ));
+	return movement( ).head_orientation( );
 }
 
 void CStalker::net_Relcase(CObject* O)
@@ -939,7 +946,9 @@ void CStalker::net_Relcase(CObject* O)
 	sight( ).remove_links(O);
 
 	if (!g_Alive( ))
+	{
 		return;
+	}
 
 	agent_manager( ).remove_links(O);
 	m_pPhysics_support->in_NetRelcase(O);
@@ -947,17 +956,17 @@ void CStalker::net_Relcase(CObject* O)
 
 CMovementManager* CStalker::create_movement_manager( )
 {
-	return	(m_movement_manager = xr_new<CStalkerMovementManager>(this));
+	return (m_movement_manager = xr_new<CStalkerMovementManager>(this));
 }
 
 CSound_UserDataVisitor* CStalker::create_sound_visitor( )
 {
-	return	(m_sound_user_data_visitor = xr_new<CStalkerSoundDataVisitor>(this));
+	return (m_sound_user_data_visitor = xr_new<CStalkerSoundDataVisitor>(this));
 }
 
 CMemoryManager* CStalker::create_memory_manager( )
 {
-	return	(xr_new<CMemoryManager>(this, create_sound_visitor( )));
+	return xr_new<CMemoryManager>(this, create_sound_visitor( ));
 }
 
 DLL_Pure* CStalker::_construct( )
@@ -973,24 +982,26 @@ DLL_Pure* CStalker::_construct( )
 	m_sight_manager = xr_new<CSightManager>(this);
 	m_weapon_shot_effector = xr_new<CWeaponShotEffector>( );
 
-	return								(this);
+	return this;
 }
 
 bool CStalker::use_center_to_aim( ) const
 {
-	return								(!wounded( ) && (movement( ).body_state( ) != eBodyStateCrouch));
+	return (!wounded( ) && (movement( ).body_state( ) != eBodyStateCrouch));
 }
 
 void CStalker::UpdateCamera( )
 {
-	f32								new_range = eye_range;
-	f32								new_fov = eye_fov;
-	fVector3								temp = eye_matrix.k;
+	f32 new_range = eye_range;
+	f32 new_fov = eye_fov;
+	fVector3 temp = eye_matrix.k;
 	if (g_Alive( ))
 	{
 		update_range_fov(new_range, new_fov, memory( ).visual( ).current_state( ).m_max_view_distance * eye_range, eye_fov);
 		if (weapon_shot_effector( ).IsActive( ))
+		{
 			temp = weapon_shot_effector_direction(temp);
+		}
 	}
 
 	g_pGameLevel->Cameras( ).Update(eye_matrix.c, temp, eye_matrix.j, new_fov, .75f, new_range);
@@ -999,9 +1010,11 @@ void CStalker::UpdateCamera( )
 bool CStalker::can_attach(const CInventoryItem* inventory_item) const
 {
 	if (already_dead( ))
-		return							(false);
+	{
+		return false;
+	}
 
-	return								(CObjectHandler::can_attach(inventory_item));
+	return CObjectHandler::can_attach(inventory_item);
 }
 
 void CStalker::save(CNetPacket& packet)
@@ -1059,7 +1072,161 @@ void CStalker::on_before_change_team( )
 void CStalker::on_after_change_team( )
 {
 	if (!m_registered_in_combat_on_migration)
+	{
 		return;
+	}
 
 	agent_manager( ).member( ).register_in_combat(this);
+}
+
+using namespace luabind;
+
+#pragma optimize("s",on)
+void CStalker::script_register(lua_State* L)
+{
+	module(L)
+		[
+			class_<CStalkerPlanner>("stalker_ids")
+				.enum_("properties")
+				[
+					luabind::value("property_alive", StalkerDecisionSpace::eWorldPropertyAlive),
+					luabind::value("property_dead", StalkerDecisionSpace::eWorldPropertyDead),
+					luabind::value("property_already_dead", StalkerDecisionSpace::eWorldPropertyAlreadyDead),
+					luabind::value("property_alife", StalkerDecisionSpace::eWorldPropertyALife),
+					luabind::value("property_puzzle_solved", StalkerDecisionSpace::eWorldPropertyPuzzleSolved),
+					luabind::value("property_smart_terrain_task", StalkerDecisionSpace::eWorldPropertySmartTerrainTask),
+					luabind::value("property_items", StalkerDecisionSpace::eWorldPropertyItems),
+					luabind::value("property_enemy", StalkerDecisionSpace::eWorldPropertyEnemy),
+					luabind::value("property_danger", StalkerDecisionSpace::eWorldPropertyDanger),
+					luabind::value("property_item_to_kill", StalkerDecisionSpace::eWorldPropertyItemToKill),
+					luabind::value("property_found_item_to_kill", StalkerDecisionSpace::eWorldPropertyFoundItemToKill),
+					luabind::value("property_item_can_kill", StalkerDecisionSpace::eWorldPropertyItemCanKill),
+					luabind::value("property_found_ammo", StalkerDecisionSpace::eWorldPropertyFoundAmmo),
+					luabind::value("property_ready_to_kill", StalkerDecisionSpace::eWorldPropertyReadyToKill),
+					luabind::value("property_ready_to_detour", StalkerDecisionSpace::eWorldPropertyReadyToDetour),
+					luabind::value("property_see_enemy", StalkerDecisionSpace::eWorldPropertySeeEnemy),
+					luabind::value("property_panic", StalkerDecisionSpace::eWorldPropertyPanic),
+					luabind::value("property_in_cover", StalkerDecisionSpace::eWorldPropertyInCover),
+					luabind::value("property_looked_out", StalkerDecisionSpace::eWorldPropertyLookedOut),
+					luabind::value("property_position_holded", StalkerDecisionSpace::eWorldPropertyPositionHolded),
+					luabind::value("property_enemy_detoured", StalkerDecisionSpace::eWorldPropertyEnemyDetoured),
+					luabind::value("property_use_suddenness", StalkerDecisionSpace::eWorldPropertyUseSuddenness),
+					luabind::value("property_use_crouch_to_look_out", StalkerDecisionSpace::eWorldPropertyUseCrouchToLookOut),
+					luabind::value("property_critically_wounded", StalkerDecisionSpace::eWorldPropertyCriticallyWounded),
+					luabind::value("property_enemy_critically_wounded", StalkerDecisionSpace::eWorldPropertyEnemyCriticallyWounded),
+
+					luabind::value("property_danger_unknown", StalkerDecisionSpace::eWorldPropertyDangerUnknown),
+					luabind::value("property_danger_in_direction", StalkerDecisionSpace::eWorldPropertyDangerInDirection),
+					luabind::value("property_danger_grenade", StalkerDecisionSpace::eWorldPropertyDangerGrenade),
+					luabind::value("property_danger_by_sound", StalkerDecisionSpace::eWorldPropertyDangerBySound),
+
+					luabind::value("property_cover_actual", StalkerDecisionSpace::eWorldPropertyCoverActual),
+					luabind::value("property_cover_reached", StalkerDecisionSpace::eWorldPropertyCoverReached),
+					luabind::value("property_looked_around", StalkerDecisionSpace::eWorldPropertyLookedAround),
+					luabind::value("property_grenade_exploded", StalkerDecisionSpace::eWorldPropertyGrenadeExploded),
+
+					luabind::value("property_anomaly", StalkerDecisionSpace::eWorldPropertyAnomaly),
+					luabind::value("property_inside_anomaly", StalkerDecisionSpace::eWorldPropertyInsideAnomaly),
+					luabind::value("property_pure_enemy", StalkerDecisionSpace::eWorldPropertyPureEnemy),
+					luabind::value("property_script", StalkerDecisionSpace::eWorldPropertyScript)
+				]
+
+			.enum_("action")
+				[
+					luabind::value("action_dead", StalkerDecisionSpace::eWorldOperatorDead),
+					luabind::value("action_dying", StalkerDecisionSpace::eWorldOperatorDying),
+					luabind::value("action_gather_items", StalkerDecisionSpace::eWorldOperatorGatherItems),
+					luabind::value("action_no_alife", StalkerDecisionSpace::eWorldOperatorALifeEmulation),
+					luabind::value("action_smart_terrain_task", StalkerDecisionSpace::eWorldOperatorSmartTerrainTask),
+					luabind::value("action_solve_zone_puzzle", StalkerDecisionSpace::eWorldOperatorSolveZonePuzzle),
+					luabind::value("action_reach_task_location", StalkerDecisionSpace::eWorldOperatorReachTaskLocation),
+					luabind::value("action_accomplish_task", StalkerDecisionSpace::eWorldOperatorAccomplishTask),
+					luabind::value("action_reach_customer_location", StalkerDecisionSpace::eWorldOperatorReachCustomerLocation),
+					luabind::value("action_communicate_with_customer", StalkerDecisionSpace::eWorldOperatorCommunicateWithCustomer),
+					luabind::value("get_out_of_anomaly", StalkerDecisionSpace::eWorldOperatorGetOutOfAnomaly),
+					luabind::value("detect_anomaly", StalkerDecisionSpace::eWorldOperatorDetectAnomaly),
+					luabind::value("action_get_item_to_kill", StalkerDecisionSpace::eWorldOperatorGetItemToKill),
+					luabind::value("action_find_item_to_kill", StalkerDecisionSpace::eWorldOperatorFindItemToKill),
+					luabind::value("action_make_item_killing", StalkerDecisionSpace::eWorldOperatorMakeItemKilling),
+					luabind::value("action_find_ammo", StalkerDecisionSpace::eWorldOperatorFindAmmo),
+					luabind::value("action_aim_enemy", StalkerDecisionSpace::eWorldOperatorAimEnemy),
+					luabind::value("action_get_ready_to_kill", StalkerDecisionSpace::eWorldOperatorGetReadyToKill),
+					luabind::value("action_kill_enemy", StalkerDecisionSpace::eWorldOperatorKillEnemy),
+					luabind::value("action_retreat_from_enemy", StalkerDecisionSpace::eWorldOperatorRetreatFromEnemy),
+					luabind::value("action_take_cover", StalkerDecisionSpace::eWorldOperatorTakeCover),
+					luabind::value("action_look_out", StalkerDecisionSpace::eWorldOperatorLookOut),
+					luabind::value("action_hold_position", StalkerDecisionSpace::eWorldOperatorHoldPosition),
+					luabind::value("action_get_distance", StalkerDecisionSpace::eWorldOperatorGetDistance),
+					luabind::value("action_detour_enemy", StalkerDecisionSpace::eWorldOperatorDetourEnemy),
+					luabind::value("action_search_enemy", StalkerDecisionSpace::eWorldOperatorSearchEnemy),
+					luabind::value("action_sudden_attack", StalkerDecisionSpace::eWorldOperatorSuddenAttack),
+					luabind::value("action_kill_enemy_if_not_visible", StalkerDecisionSpace::eWorldOperatorKillEnemyIfNotVisible),
+					luabind::value("action_reach_wounded_enemy", StalkerDecisionSpace::eWorldOperatorReachWoundedEnemy),
+					luabind::value("action_prepare_wounded_enemy", StalkerDecisionSpace::eWorldOperatorPrepareWoundedEnemy),
+					luabind::value("action_kill_wounded_enemy", StalkerDecisionSpace::eWorldOperatorKillWoundedEnemy),
+					luabind::value("action_kill_if_player_on_the_path", StalkerDecisionSpace::eWorldOperatorKillEnemyIfPlayerOnThePath),
+					luabind::value("action_critically_wounded", StalkerDecisionSpace::eWorldOperatorCriticallyWounded),
+					luabind::value("action_kill_if_enemy_critically_wounded", StalkerDecisionSpace::eWorldOperatorKillEnemyIfCriticallyWounded),
+
+					luabind::value("action_danger_unknown_planner", StalkerDecisionSpace::eWorldOperatorDangerUnknownPlanner),
+					luabind::value("action_danger_in_direction_planner", StalkerDecisionSpace::eWorldOperatorDangerInDirectionPlanner),
+					luabind::value("action_danger_grenade_planner", StalkerDecisionSpace::eWorldOperatorDangerGrenadePlanner),
+					luabind::value("action_danger_by_sound_planner", StalkerDecisionSpace::eWorldOperatorDangerBySoundPlanner),
+
+					luabind::value("action_danger_unknown_take_cover", StalkerDecisionSpace::eWorldOperatorDangerUnknownTakeCover),
+					luabind::value("action_danger_unknown_look_around", StalkerDecisionSpace::eWorldOperatorDangerUnknownLookAround),
+					luabind::value("action_danger_unknown_search", StalkerDecisionSpace::eWorldOperatorDangerUnknownSearchEnemy),
+
+					luabind::value("action_danger_in_direction_take_cover", StalkerDecisionSpace::eWorldOperatorDangerInDirectionTakeCover),
+					luabind::value("action_danger_in_direction_look_out", StalkerDecisionSpace::eWorldOperatorDangerInDirectionLookOut),
+					luabind::value("action_danger_in_direction_hold_position", StalkerDecisionSpace::eWorldOperatorDangerInDirectionHoldPosition),
+					luabind::value("action_danger_in_direction_detour", StalkerDecisionSpace::eWorldOperatorDangerInDirectionDetourEnemy),
+					luabind::value("action_danger_in_direction_search", StalkerDecisionSpace::eWorldOperatorDangerInDirectionSearchEnemy),
+
+					luabind::value("action_danger_grenade_take_cover", StalkerDecisionSpace::eWorldOperatorDangerGrenadeTakeCover),
+					luabind::value("action_danger_grenade_wait_for_explosion", StalkerDecisionSpace::eWorldOperatorDangerGrenadeWaitForExplosion),
+					luabind::value("action_danger_grenade_take_cover_after_explosion", StalkerDecisionSpace::eWorldOperatorDangerGrenadeTakeCoverAfterExplosion),
+					luabind::value("action_danger_grenade_look_around", StalkerDecisionSpace::eWorldOperatorDangerGrenadeLookAround),
+					luabind::value("action_danger_grenade_search", StalkerDecisionSpace::eWorldOperatorDangerGrenadeSearch),
+
+					luabind::value("action_death_planner", StalkerDecisionSpace::eWorldOperatorDeathPlanner),
+					luabind::value("action_alife_planner", StalkerDecisionSpace::eWorldOperatorALifePlanner),
+					luabind::value("action_combat_planner", StalkerDecisionSpace::eWorldOperatorCombatPlanner),
+					luabind::value("action_anomaly_planner", StalkerDecisionSpace::eWorldOperatorAnomalyPlanner),
+					luabind::value("action_danger_planner", StalkerDecisionSpace::eWorldOperatorDangerPlanner),
+					luabind::value("action_post_combat_wait", StalkerDecisionSpace::eWorldOperatorPostCombatWait),
+					luabind::value("action_script", StalkerDecisionSpace::eWorldOperatorScript)
+				]
+
+			.enum_("sounds")
+				[
+					luabind::value("sound_die", StalkerSpace::eStalkerSoundDie),
+					luabind::value("sound_die_in_anomaly", StalkerSpace::eStalkerSoundDieInAnomaly),
+					luabind::value("sound_injuring", StalkerSpace::eStalkerSoundInjuring),
+					luabind::value("sound_humming", StalkerSpace::eStalkerSoundHumming),
+					luabind::value("sound_alarm", StalkerSpace::eStalkerSoundAlarm),
+					luabind::value("sound_attack_no_allies", StalkerSpace::eStalkerSoundAttackNoAllies),
+					luabind::value("sound_attack_allies_single_enemy", StalkerSpace::eStalkerSoundAttackAlliesSingleEnemy),
+					luabind::value("sound_attack_allies_several_enemies", StalkerSpace::eStalkerSoundAttackAlliesSeveralEnemies),
+					luabind::value("sound_backup", StalkerSpace::eStalkerSoundBackup),
+					luabind::value("sound_detour", StalkerSpace::eStalkerSoundDetour),
+					luabind::value("sound_search1_no_allies", StalkerSpace::eStalkerSoundSearch1NoAllies),
+					luabind::value("sound_search1_with_allies", StalkerSpace::eStalkerSoundSearch1WithAllies),
+					luabind::value("sound_injuring_by_friend", StalkerSpace::eStalkerSoundInjuringByFriend),
+					luabind::value("sound_panic_human", StalkerSpace::eStalkerSoundPanicHuman),
+					luabind::value("sound_panic_monster", StalkerSpace::eStalkerSoundPanicMonster),
+					luabind::value("sound_tolls", StalkerSpace::eStalkerSoundTolls),
+					luabind::value("sound_grenade_alarm", StalkerSpace::eStalkerSoundGrenadeAlarm),
+					luabind::value("sound_friendly_grenade_alarm", StalkerSpace::eStalkerSoundFriendlyGrenadeAlarm),
+					luabind::value("sound_need_backup", StalkerSpace::eStalkerSoundNeedBackup),
+					luabind::value("sound_running_in_danger", StalkerSpace::eStalkerSoundRunningInDanger),
+					luabind::value("sound_kill_wounded", StalkerSpace::eStalkerSoundKillWounded),
+					luabind::value("sound_enemy_critically_wounded", StalkerSpace::eStalkerSoundEnemyCriticallyWounded),
+					luabind::value("sound_enemy_killed_or_wounded", StalkerSpace::eStalkerSoundMaskEnemyKilledOrWounded),
+					luabind::value("sound_script", StalkerSpace::eStalkerSoundScript)
+				],
+
+				class_<CStalker, CGameObject>("CStalker")
+				.def(constructor<>( ))
+		];
 }

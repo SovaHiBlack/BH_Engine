@@ -8,7 +8,7 @@
 #include "stdafx.h"
 
 #include "Stalker.h"
-#include "ai_stalker_impl.h"
+#include "Stalker_impl.h"
 #include "../../script_entity_action.h"
 #include "../../Inventory.h"
 #include "../../ef_storage.h"
@@ -35,7 +35,7 @@
 #include "../../object_handler_space.h"
 #include "../../visual_memory_manager.h"
 #include "../../Weapon.h"
-#include "ai_stalker_space.h"
+#include "Stalker_space.h"
 #include "../../EffectorShot.h"
 #include "../../BoneProtections.h"
 #include "../../RadioactiveZone.h"

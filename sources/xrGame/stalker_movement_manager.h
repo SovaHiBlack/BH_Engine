@@ -8,7 +8,7 @@
 
 #pragma once
 
-#include "movement_manager.h"
+#include "MovementManager.h"
 #include "ai_monster_space.h"
 #include "stalker_movement_params.h"
 

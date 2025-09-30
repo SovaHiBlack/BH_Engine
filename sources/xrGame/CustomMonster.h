@@ -84,29 +84,30 @@ public:
 	u32					m_dwLastUpdateTime;
 	u32					m_current_update;
 
-	u32					m_dwCurrentTime;		// time updated in UpdateCL 
+	u32					m_dwCurrentTime;		// time updated in UpdateCL
 
-	struct net_update	{
+	struct SNetUpdate
+	{
 		u32				dwTimeStamp;			// server(game) timestamp
 		f32				o_model;				// model yaw
 		SRotation		o_torso;				// torso in world coords
-		fVector3			p_pos;					// in world coords
+		fVector3		p_pos;					// in world coords
 		f32				fHealth;
 
 		// non-exported (temporal)
 
-		net_update()	{
+		SNetUpdate()	{
 			dwTimeStamp		= 0;
-			o_model			= 0;
-			o_torso.yaw		= 0;
-			o_torso.pitch	= 0;
-			p_pos.set		(0,0,0);
-			fHealth			= 0.f;
+			o_model			= 0.0f;
+			o_torso.yaw		= 0.0f;
+			o_torso.pitch	= 0.0f;
+			p_pos.set		(0.0f,0.0f,0.0f);
+			fHealth			= 0.0f;
 		}
-		void	lerp	(net_update& A,net_update& B, f32 f);
+		void	lerp	(SNetUpdate& A, SNetUpdate& B, f32 f);
 	};
-	xr_deque<net_update>	NET;
-	net_update				NET_Last;
+	xr_deque<SNetUpdate>	NET;
+	SNetUpdate				NET_Last;
 	BOOL					NET_WasInterpolating;	// previous update was by interpolation or by extrapolation
 	u32						NET_Time;				// server time of last update
 //------------------------------
@@ -317,4 +318,4 @@ public:
 	virtual	void					destroy_anim_mov_ctrl						();
 };
 
-#include "custommonster_inline.h"
+#include "CustomMonster_inline.h"

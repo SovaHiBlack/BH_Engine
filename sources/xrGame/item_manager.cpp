@@ -9,11 +9,11 @@
 #include "stdafx.h"
 #include "item_manager.h"
 #include "InventoryItem.h"
-#include "custommonster.h"
+#include "CustomMonster.h"
 #include "ai_object_location.h"
 #include "level_graph.h"
 #include "restricted_object.h"
-#include "movement_manager.h"
+#include "MovementManager.h"
 #include "AISpace.h"
 #include "Profiler.h"
 

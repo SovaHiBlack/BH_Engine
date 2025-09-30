@@ -35,7 +35,7 @@ pcstr CInventoryItemObject::NameShort( )
 	return CInventoryItem::NameShort( );
 }
 
-void				CInventoryItemObject::Hit(SHit* pHDS)
+void CInventoryItemObject::Hit(SHit* pHDS)
 {
 	CPhysicItem::Hit(pHDS);
 	CInventoryItem::Hit(pHDS);

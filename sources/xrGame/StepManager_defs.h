@@ -48,4 +48,3 @@ enum ELegType
 	eBackRight,
 	eBackLeft
 };
-

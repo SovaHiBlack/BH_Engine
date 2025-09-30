@@ -1,6 +1,6 @@
 #include "stdafx.h"
-#include "custommonster.h"
-#include "movement_manager.h"
+#include "CustomMonster.h"
+#include "MovementManager.h"
 
 IC void conv_angle(f32& c)
 {

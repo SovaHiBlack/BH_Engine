@@ -1639,135 +1639,6 @@
     <Filter Include="AI\Monsters\humans">
       <UniqueIdentifier>{075dd244-a74c-4fa9-9b27-cfb1340701ea}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\Monsters\humans\stalker">
-      <UniqueIdentifier>{00f0639f-5b49-439c-93f1-c5d6d97e4c52}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\AnimationManager">
-      <UniqueIdentifier>{fb44f6ba-4e90-4a31-86d6-318ec06cbb2c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\AnimationManager\data_storage">
-      <UniqueIdentifier>{a05ad86a-c919-4d3a-a6e7-1981c97838d6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\AnimationManager\data_storage\data">
-      <UniqueIdentifier>{de56e083-926c-45ec-a254-2a965fac2419}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\AnimationManager\names">
-      <UniqueIdentifier>{1d1c79a7-3a8f-4d84-9166-3ce01dc70e4c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\AnimationManager\pair">
-      <UniqueIdentifier>{9c17c38b-064f-45b7-8dfb-5807daea786b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\AnimationManager\script">
-      <UniqueIdentifier>{ce3e958e-60ee-48c4-8b4b-9cd5cfc3a831}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\AnimationManager\state">
-      <UniqueIdentifier>{b16c0f38-6ba5-43ae-8c83-880cd0936580}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\CoverEvaluators">
-      <UniqueIdentifier>{2bcf38cd-62bc-4474-8bc4-aeaaf9b820c4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\DecisionMaker">
-      <UniqueIdentifier>{307d5b2a-a701-4759-872b-ac09db7aeb41}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\DecisionMaker\actions">
-      <UniqueIdentifier>{8f616b0f-5bb9-4514-8fbd-389d63ef23ef}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\DecisionMaker\actions\alife">
-      <UniqueIdentifier>{06394739-682f-4093-b028-4d1e2cfae1db}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\DecisionMaker\actions\alife\actions">
-      <UniqueIdentifier>{02bda881-29d8-4fd3-a2f5-3d5387130321}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\DecisionMaker\actions\alife\task_actions">
-      <UniqueIdentifier>{6d8fb6cb-9d76-421a-a2ff-0efa1ba62db6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\DecisionMaker\actions\anomaly">
-      <UniqueIdentifier>{db6aa5a6-fde7-482e-a3df-066703ad36cf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\DecisionMaker\actions\anomaly\actions">
-      <UniqueIdentifier>{e5386875-8c7a-44ae-baf2-36abf4b2f392}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\DecisionMaker\actions\combat">
-      <UniqueIdentifier>{95b8bddb-a51e-4041-8bab-5a01c2f75711}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\DecisionMaker\actions\combat\actions">
-      <UniqueIdentifier>{c8d93213-57c5-4567-8234-0d441c61e80f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\DecisionMaker\actions\combat\actions\base">
-      <UniqueIdentifier>{506e559d-1ba5-42eb-b391-e9c4a48a35a2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\DecisionMaker\actions\combat\kill_wounded">
-      <UniqueIdentifier>{bd5a50de-a6bc-4cb0-93e1-d34e115d93b6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\DecisionMaker\actions\combat\kill_wounded\actions">
-      <UniqueIdentifier>{9499d10e-1a1b-4981-9e41-d6294b3a427b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\DecisionMaker\actions\danger">
-      <UniqueIdentifier>{97daa679-f326-4284-a63b-1b3da618aa07}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\DecisionMaker\actions\danger\actions">
-      <UniqueIdentifier>{65e57ce7-db05-40eb-afff-905a5255dd19}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\DecisionMaker\actions\danger\actions\unknown">
-      <UniqueIdentifier>{0f53888f-10e4-4c81-9257-f64bfd004dbd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\DecisionMaker\actions\danger\actions\unknown\actions">
-      <UniqueIdentifier>{ddb1e8bf-a727-473f-b452-6b9e3084438e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\DecisionMaker\actions\danger\actions\in_direction">
-      <UniqueIdentifier>{f010f755-3779-4097-aef8-2492b9e5e87d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\DecisionMaker\actions\danger\actions\in_direction\actions">
-      <UniqueIdentifier>{f0d0401c-7123-47c1-b11b-0064e24b4b51}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\DecisionMaker\actions\danger\actions\grenade">
-      <UniqueIdentifier>{b657887f-423c-46d9-9f2b-05abd672303b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\DecisionMaker\actions\danger\actions\grenade\actions">
-      <UniqueIdentifier>{d21b5aff-5cce-434c-8818-a1a8017b17a1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\DecisionMaker\actions\danger\actions\by_sound">
-      <UniqueIdentifier>{bdd82d47-7c01-40c5-a2c6-80998db7305f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\DecisionMaker\actions\danger\actions\by_sound\actions">
-      <UniqueIdentifier>{e3d3d1c8-82ee-4f5e-8a73-61f0a1aa648e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\DecisionMaker\actions\danger\properties">
-      <UniqueIdentifier>{f026ed22-e28c-4ad7-9fe6-9c6eb4fb7193}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\DecisionMaker\actions\death">
-      <UniqueIdentifier>{034771ff-44b3-442f-b383-71664e20d7ba}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\DecisionMaker\actions\death\actions">
-      <UniqueIdentifier>{5890e11c-108e-4311-948a-71b0a9b0e357}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\DecisionMaker\properties">
-      <UniqueIdentifier>{b59b7968-5530-4f2d-8ce4-9aea515cebaa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\MovementManager">
-      <UniqueIdentifier>{763e81ca-f1d3-484d-8278-a426c365788e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\MovementManager\params">
-      <UniqueIdentifier>{0b4addd9-6d8a-45a0-b3cf-52e2f8c75705}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\MovementManager\restriction">
-      <UniqueIdentifier>{25e40fe8-0c09-486b-a4ab-2589e64a11b8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\MovementManager\velocity_collection">
-      <UniqueIdentifier>{cc20c785-aedc-446a-abc1-b77eb64e7448}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\MovementManager\velocity_holder">
-      <UniqueIdentifier>{9cfaed21-cdd6-4fa9-ab9d-a917fa61a203}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\Miscellaneous">
-      <UniqueIdentifier>{c6a51ca0-b45f-4380-847b-576ce23f390f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\SoundDataVisitor">
-      <UniqueIdentifier>{d82a9562-6469-4529-a55b-d932a7833999}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\Monsters\humans\stalker\SoundUserData">
-      <UniqueIdentifier>{9478062f-7d21-4eaf-beb1-392b396f935d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="AI\Monsters\humans\Trader">
       <UniqueIdentifier>{2f662c26-f5ee-4a6a-8032-976368937848}</UniqueIdentifier>
     </Filter>
@@ -2062,6 +1933,135 @@
     <Filter Include="AI\Monsters\common\BaseMonster">
       <UniqueIdentifier>{def054d2-448a-4f80-8b83-471e5a3d060f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker">
+      <UniqueIdentifier>{00f0639f-5b49-439c-93f1-c5d6d97e4c52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\AnimationManager">
+      <UniqueIdentifier>{fb44f6ba-4e90-4a31-86d6-318ec06cbb2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\AnimationManager\data_storage">
+      <UniqueIdentifier>{a05ad86a-c919-4d3a-a6e7-1981c97838d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\AnimationManager\data_storage\data">
+      <UniqueIdentifier>{de56e083-926c-45ec-a254-2a965fac2419}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\AnimationManager\names">
+      <UniqueIdentifier>{1d1c79a7-3a8f-4d84-9166-3ce01dc70e4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\AnimationManager\pair">
+      <UniqueIdentifier>{9c17c38b-064f-45b7-8dfb-5807daea786b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\AnimationManager\script">
+      <UniqueIdentifier>{ce3e958e-60ee-48c4-8b4b-9cd5cfc3a831}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\AnimationManager\state">
+      <UniqueIdentifier>{b16c0f38-6ba5-43ae-8c83-880cd0936580}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\CoverEvaluators">
+      <UniqueIdentifier>{2bcf38cd-62bc-4474-8bc4-aeaaf9b820c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\DecisionMaker">
+      <UniqueIdentifier>{307d5b2a-a701-4759-872b-ac09db7aeb41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\DecisionMaker\actions">
+      <UniqueIdentifier>{8f616b0f-5bb9-4514-8fbd-389d63ef23ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\DecisionMaker\actions\alife">
+      <UniqueIdentifier>{06394739-682f-4093-b028-4d1e2cfae1db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\DecisionMaker\actions\alife\actions">
+      <UniqueIdentifier>{02bda881-29d8-4fd3-a2f5-3d5387130321}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\DecisionMaker\actions\alife\task_actions">
+      <UniqueIdentifier>{6d8fb6cb-9d76-421a-a2ff-0efa1ba62db6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\DecisionMaker\actions\anomaly">
+      <UniqueIdentifier>{db6aa5a6-fde7-482e-a3df-066703ad36cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\DecisionMaker\actions\anomaly\actions">
+      <UniqueIdentifier>{e5386875-8c7a-44ae-baf2-36abf4b2f392}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\DecisionMaker\actions\combat">
+      <UniqueIdentifier>{95b8bddb-a51e-4041-8bab-5a01c2f75711}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\DecisionMaker\actions\combat\actions">
+      <UniqueIdentifier>{c8d93213-57c5-4567-8234-0d441c61e80f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\DecisionMaker\actions\combat\actions\base">
+      <UniqueIdentifier>{506e559d-1ba5-42eb-b391-e9c4a48a35a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\DecisionMaker\actions\combat\kill_wounded">
+      <UniqueIdentifier>{bd5a50de-a6bc-4cb0-93e1-d34e115d93b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\DecisionMaker\actions\combat\kill_wounded\actions">
+      <UniqueIdentifier>{9499d10e-1a1b-4981-9e41-d6294b3a427b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\DecisionMaker\actions\danger">
+      <UniqueIdentifier>{97daa679-f326-4284-a63b-1b3da618aa07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\DecisionMaker\actions\danger\actions">
+      <UniqueIdentifier>{65e57ce7-db05-40eb-afff-905a5255dd19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\DecisionMaker\actions\danger\actions\unknown">
+      <UniqueIdentifier>{0f53888f-10e4-4c81-9257-f64bfd004dbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\DecisionMaker\actions\danger\actions\unknown\actions">
+      <UniqueIdentifier>{ddb1e8bf-a727-473f-b452-6b9e3084438e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\DecisionMaker\actions\danger\actions\in_direction">
+      <UniqueIdentifier>{f010f755-3779-4097-aef8-2492b9e5e87d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\DecisionMaker\actions\danger\actions\in_direction\actions">
+      <UniqueIdentifier>{f0d0401c-7123-47c1-b11b-0064e24b4b51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\DecisionMaker\actions\danger\actions\grenade">
+      <UniqueIdentifier>{b657887f-423c-46d9-9f2b-05abd672303b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\DecisionMaker\actions\danger\actions\grenade\actions">
+      <UniqueIdentifier>{d21b5aff-5cce-434c-8818-a1a8017b17a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\DecisionMaker\actions\danger\actions\by_sound">
+      <UniqueIdentifier>{bdd82d47-7c01-40c5-a2c6-80998db7305f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\DecisionMaker\actions\danger\actions\by_sound\actions">
+      <UniqueIdentifier>{e3d3d1c8-82ee-4f5e-8a73-61f0a1aa648e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\DecisionMaker\actions\danger\properties">
+      <UniqueIdentifier>{f026ed22-e28c-4ad7-9fe6-9c6eb4fb7193}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\DecisionMaker\actions\death">
+      <UniqueIdentifier>{034771ff-44b3-442f-b383-71664e20d7ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\DecisionMaker\actions\death\actions">
+      <UniqueIdentifier>{5890e11c-108e-4311-948a-71b0a9b0e357}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\DecisionMaker\properties">
+      <UniqueIdentifier>{b59b7968-5530-4f2d-8ce4-9aea515cebaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\MovementManager">
+      <UniqueIdentifier>{763e81ca-f1d3-484d-8278-a426c365788e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\MovementManager\params">
+      <UniqueIdentifier>{0b4addd9-6d8a-45a0-b3cf-52e2f8c75705}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\MovementManager\restriction">
+      <UniqueIdentifier>{25e40fe8-0c09-486b-a4ab-2589e64a11b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\MovementManager\velocity_collection">
+      <UniqueIdentifier>{cc20c785-aedc-446a-abc1-b77eb64e7448}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\MovementManager\velocity_holder">
+      <UniqueIdentifier>{9cfaed21-cdd6-4fa9-ab9d-a917fa61a203}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\Miscellaneous">
+      <UniqueIdentifier>{c6a51ca0-b45f-4380-847b-576ce23f390f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\SoundDataVisitor">
+      <UniqueIdentifier>{d82a9562-6469-4529-a55b-d932a7833999}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Monsters\humans\Stalker\SoundUserData">
+      <UniqueIdentifier>{9478062f-7d21-4eaf-beb1-392b396f935d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mt_config.h">
@@ -2241,13 +2241,13 @@
     <ClInclude Include="VisionClient_inline.h">
       <Filter>AI\AComponents\MemoryManager\raw_data_managers\VisualMemoryManager\vision_client</Filter>
     </ClInclude>
-    <ClInclude Include="movement_manager.h">
+    <ClInclude Include="MovementManager.h">
       <Filter>AI\AComponents\MovementManager</Filter>
     </ClInclude>
-    <ClInclude Include="movement_manager_inline.h">
+    <ClInclude Include="MovementManager_inline.h">
       <Filter>AI\AComponents\MovementManager</Filter>
     </ClInclude>
-    <ClInclude Include="movement_manager_space.h">
+    <ClInclude Include="MovementManager_space.h">
       <Filter>AI\AComponents\MovementManager</Filter>
     </ClInclude>
     <ClInclude Include="location_manager.h">
@@ -3688,184 +3688,184 @@
       <Filter>AI\Monsters\humans\Trader</Filter>
     </ClInclude>
     <ClInclude Include="Ai\Stalker\Stalker.h">
-      <Filter>AI\Monsters\humans\stalker</Filter>
+      <Filter>AI\Monsters\humans\Stalker</Filter>
     </ClInclude>
-    <ClInclude Include="ai\stalker\ai_stalker_impl.h">
-      <Filter>AI\Monsters\humans\stalker</Filter>
+    <ClInclude Include="ai\stalker\Stalker_impl.h">
+      <Filter>AI\Monsters\humans\Stalker</Filter>
     </ClInclude>
-    <ClInclude Include="ai\stalker\ai_stalker_inline.h">
-      <Filter>AI\Monsters\humans\stalker</Filter>
+    <ClInclude Include="ai\stalker\Stalker_inline.h">
+      <Filter>AI\Monsters\humans\Stalker</Filter>
     </ClInclude>
-    <ClInclude Include="Ai\Stalker\ai_stalker_space.h">
-      <Filter>AI\Monsters\humans\stalker</Filter>
+    <ClInclude Include="Ai\Stalker\Stalker_space.h">
+      <Filter>AI\Monsters\humans\Stalker</Filter>
     </ClInclude>
     <ClInclude Include="stalker_animation_manager.h">
-      <Filter>AI\Monsters\humans\stalker\AnimationManager</Filter>
+      <Filter>AI\Monsters\humans\Stalker\AnimationManager</Filter>
     </ClInclude>
     <ClInclude Include="stalker_animation_manager_impl.h">
-      <Filter>AI\Monsters\humans\stalker\AnimationManager</Filter>
+      <Filter>AI\Monsters\humans\Stalker\AnimationManager</Filter>
     </ClInclude>
     <ClInclude Include="stalker_animation_manager_inline.h">
-      <Filter>AI\Monsters\humans\stalker\AnimationManager</Filter>
+      <Filter>AI\Monsters\humans\Stalker\AnimationManager</Filter>
     </ClInclude>
     <ClInclude Include="stalker_animation_data_storage.h">
-      <Filter>AI\Monsters\humans\stalker\AnimationManager\data_storage</Filter>
+      <Filter>AI\Monsters\humans\Stalker\AnimationManager\data_storage</Filter>
     </ClInclude>
     <ClInclude Include="stalker_animation_data_storage_inline.h">
-      <Filter>AI\Monsters\humans\stalker\AnimationManager\data_storage</Filter>
+      <Filter>AI\Monsters\humans\Stalker\AnimationManager\data_storage</Filter>
     </ClInclude>
     <ClInclude Include="stalker_animation_data.h">
-      <Filter>AI\Monsters\humans\stalker\AnimationManager\data_storage\data</Filter>
+      <Filter>AI\Monsters\humans\Stalker\AnimationManager\data_storage\data</Filter>
     </ClInclude>
     <ClInclude Include="stalker_animation_names.h">
-      <Filter>AI\Monsters\humans\stalker\AnimationManager\names</Filter>
+      <Filter>AI\Monsters\humans\Stalker\AnimationManager\names</Filter>
     </ClInclude>
     <ClInclude Include="stalker_animation_pair.h">
-      <Filter>AI\Monsters\humans\stalker\AnimationManager\pair</Filter>
+      <Filter>AI\Monsters\humans\Stalker\AnimationManager\pair</Filter>
     </ClInclude>
     <ClInclude Include="stalker_animation_pair_inline.h">
-      <Filter>AI\Monsters\humans\stalker\AnimationManager\pair</Filter>
+      <Filter>AI\Monsters\humans\Stalker\AnimationManager\pair</Filter>
     </ClInclude>
     <ClInclude Include="stalker_animation_script.h">
-      <Filter>AI\Monsters\humans\stalker\AnimationManager\script</Filter>
+      <Filter>AI\Monsters\humans\Stalker\AnimationManager\script</Filter>
     </ClInclude>
     <ClInclude Include="stalker_animation_script_inline.h">
-      <Filter>AI\Monsters\humans\stalker\AnimationManager\script</Filter>
+      <Filter>AI\Monsters\humans\Stalker\AnimationManager\script</Filter>
     </ClInclude>
     <ClInclude Include="stalker_animation_state.h">
-      <Filter>AI\Monsters\humans\stalker\AnimationManager\state</Filter>
+      <Filter>AI\Monsters\humans\Stalker\AnimationManager\state</Filter>
     </ClInclude>
     <ClInclude Include="cover_evaluators.h">
-      <Filter>AI\Monsters\humans\stalker\CoverEvaluators</Filter>
+      <Filter>AI\Monsters\humans\Stalker\CoverEvaluators</Filter>
     </ClInclude>
     <ClInclude Include="cover_evaluators_inline.h">
-      <Filter>AI\Monsters\humans\stalker\CoverEvaluators</Filter>
+      <Filter>AI\Monsters\humans\Stalker\CoverEvaluators</Filter>
     </ClInclude>
     <ClInclude Include="stalker_decision_space.h">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker</Filter>
     </ClInclude>
     <ClInclude Include="stalker_planner.h">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker</Filter>
     </ClInclude>
     <ClInclude Include="stalker_planner_inline.h">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker</Filter>
     </ClInclude>
     <ClInclude Include="stalker_base_action.h">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions</Filter>
     </ClInclude>
     <ClInclude Include="stalker_alife_planner.h">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\alife</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\alife</Filter>
     </ClInclude>
     <ClInclude Include="stalker_alife_actions.h">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\alife\actions</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\alife\actions</Filter>
     </ClInclude>
     <ClInclude Include="stalker_alife_task_actions.h">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\alife\task_actions</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\alife\task_actions</Filter>
     </ClInclude>
     <ClInclude Include="stalker_anomaly_planner.h">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\anomaly</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\anomaly</Filter>
     </ClInclude>
     <ClInclude Include="stalker_anomaly_actions.h">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\anomaly\actions</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\anomaly\actions</Filter>
     </ClInclude>
     <ClInclude Include="stalker_combat_planner.h">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\combat</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\combat</Filter>
     </ClInclude>
     <ClInclude Include="stalker_combat_actions.h">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\combat\actions</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\combat\actions</Filter>
     </ClInclude>
     <ClInclude Include="stalker_combat_action_base.h">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\combat\actions\base</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\combat\actions\base</Filter>
     </ClInclude>
     <ClInclude Include="stalker_kill_wounded_planner.h">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\combat\kill_wounded</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\combat\kill_wounded</Filter>
     </ClInclude>
     <ClInclude Include="stalker_kill_wounded_actions.h">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\combat\kill_wounded\actions</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\combat\kill_wounded\actions</Filter>
     </ClInclude>
     <ClInclude Include="stalker_danger_planner.h">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\danger</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\danger</Filter>
     </ClInclude>
     <ClInclude Include="stalker_danger_unknown_planner.h">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\danger\actions\unknown</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\danger\actions\unknown</Filter>
     </ClInclude>
     <ClInclude Include="stalker_danger_unknown_actions.h">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\danger\actions\unknown\actions</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\danger\actions\unknown\actions</Filter>
     </ClInclude>
     <ClInclude Include="stalker_danger_in_direction_planner.h">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\danger\actions\in_direction</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\danger\actions\in_direction</Filter>
     </ClInclude>
     <ClInclude Include="stalker_danger_in_direction_actions.h">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\danger\actions\in_direction\actions</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\danger\actions\in_direction\actions</Filter>
     </ClInclude>
     <ClInclude Include="stalker_danger_grenade_planner.h">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\danger\actions\grenade</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\danger\actions\grenade</Filter>
     </ClInclude>
     <ClInclude Include="stalker_danger_grenade_actions.h">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\danger\actions\grenade\actions</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\danger\actions\grenade\actions</Filter>
     </ClInclude>
     <ClInclude Include="stalker_danger_by_sound_planner.h">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\danger\actions\by_sound</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\danger\actions\by_sound</Filter>
     </ClInclude>
     <ClInclude Include="stalker_danger_by_sound_actions.h">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\danger\actions\by_sound\actions</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\danger\actions\by_sound\actions</Filter>
     </ClInclude>
     <ClInclude Include="stalker_danger_property_evaluators.h">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\danger\properties</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\danger\properties</Filter>
     </ClInclude>
     <ClInclude Include="stalker_death_planner.h">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\death</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\death</Filter>
     </ClInclude>
     <ClInclude Include="stalker_death_actions.h">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\death\actions</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\death\actions</Filter>
     </ClInclude>
     <ClInclude Include="stalker_property_evaluators.h">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\properties</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\properties</Filter>
     </ClInclude>
     <ClInclude Include="stalker_movement_manager.h">
-      <Filter>AI\Monsters\humans\stalker\MovementManager</Filter>
+      <Filter>AI\Monsters\humans\Stalker\MovementManager</Filter>
     </ClInclude>
     <ClInclude Include="stalker_movement_manager_inline.h">
-      <Filter>AI\Monsters\humans\stalker\MovementManager</Filter>
+      <Filter>AI\Monsters\humans\Stalker\MovementManager</Filter>
     </ClInclude>
     <ClInclude Include="stalker_movement_manager_space.h">
-      <Filter>AI\Monsters\humans\stalker\MovementManager</Filter>
+      <Filter>AI\Monsters\humans\Stalker\MovementManager</Filter>
     </ClInclude>
     <ClInclude Include="stalker_movement_params.h">
-      <Filter>AI\Monsters\humans\stalker\MovementManager\params</Filter>
+      <Filter>AI\Monsters\humans\Stalker\MovementManager\params</Filter>
     </ClInclude>
     <ClInclude Include="stalker_movement_params_inline.h">
-      <Filter>AI\Monsters\humans\stalker\MovementManager\params</Filter>
+      <Filter>AI\Monsters\humans\Stalker\MovementManager\params</Filter>
     </ClInclude>
     <ClInclude Include="stalker_movement_restriction.h">
-      <Filter>AI\Monsters\humans\stalker\MovementManager\restriction</Filter>
+      <Filter>AI\Monsters\humans\Stalker\MovementManager\restriction</Filter>
     </ClInclude>
     <ClInclude Include="stalker_movement_restriction_inline.h">
-      <Filter>AI\Monsters\humans\stalker\MovementManager\restriction</Filter>
+      <Filter>AI\Monsters\humans\Stalker\MovementManager\restriction</Filter>
     </ClInclude>
     <ClInclude Include="stalker_velocity_collection.h">
-      <Filter>AI\Monsters\humans\stalker\MovementManager\velocity_collection</Filter>
+      <Filter>AI\Monsters\humans\Stalker\MovementManager\velocity_collection</Filter>
     </ClInclude>
     <ClInclude Include="stalker_velocity_collection_inline.h">
-      <Filter>AI\Monsters\humans\stalker\MovementManager\velocity_collection</Filter>
+      <Filter>AI\Monsters\humans\Stalker\MovementManager\velocity_collection</Filter>
     </ClInclude>
     <ClInclude Include="stalker_velocity_holder.h">
-      <Filter>AI\Monsters\humans\stalker\MovementManager\velocity_holder</Filter>
+      <Filter>AI\Monsters\humans\Stalker\MovementManager\velocity_holder</Filter>
     </ClInclude>
     <ClInclude Include="stalker_velocity_holder_inline.h">
-      <Filter>AI\Monsters\humans\stalker\MovementManager\velocity_holder</Filter>
+      <Filter>AI\Monsters\humans\Stalker\MovementManager\velocity_holder</Filter>
     </ClInclude>
     <ClInclude Include="stalker_sound_data_visitor.h">
-      <Filter>AI\Monsters\humans\stalker\SoundDataVisitor</Filter>
+      <Filter>AI\Monsters\humans\Stalker\SoundDataVisitor</Filter>
     </ClInclude>
     <ClInclude Include="stalker_sound_data_visitor_inline.h">
-      <Filter>AI\Monsters\humans\stalker\SoundDataVisitor</Filter>
+      <Filter>AI\Monsters\humans\Stalker\SoundDataVisitor</Filter>
     </ClInclude>
     <ClInclude Include="stalker_sound_data.h">
-      <Filter>AI\Monsters\humans\stalker\SoundUserData</Filter>
+      <Filter>AI\Monsters\humans\Stalker\SoundUserData</Filter>
     </ClInclude>
     <ClInclude Include="stalker_sound_data_inline.h">
-      <Filter>AI\Monsters\humans\stalker\SoundUserData</Filter>
+      <Filter>AI\Monsters\humans\Stalker\SoundUserData</Filter>
     </ClInclude>
     <ClInclude Include="game_graph.h">
       <Filter>AI\ANavigation\GameGraph</Filter>
@@ -5996,19 +5996,19 @@
     <ClCompile Include="VisionClient.cpp">
       <Filter>AI\AComponents\MemoryManager\raw_data_managers\VisualMemoryManager\vision_client</Filter>
     </ClCompile>
-    <ClCompile Include="movement_manager.cpp">
+    <ClCompile Include="MovementManager.cpp">
       <Filter>AI\AComponents\MovementManager</Filter>
     </ClCompile>
-    <ClCompile Include="movement_manager_game.cpp">
+    <ClCompile Include="MovementManager_game.cpp">
       <Filter>AI\AComponents\MovementManager</Filter>
     </ClCompile>
-    <ClCompile Include="movement_manager_level.cpp">
+    <ClCompile Include="MovementManager_level.cpp">
       <Filter>AI\AComponents\MovementManager</Filter>
     </ClCompile>
-    <ClCompile Include="movement_manager_patrol.cpp">
+    <ClCompile Include="MovementManager_patrol.cpp">
       <Filter>AI\AComponents\MovementManager</Filter>
     </ClCompile>
-    <ClCompile Include="movement_manager_physic.cpp">
+    <ClCompile Include="MovementManager_physic.cpp">
       <Filter>AI\AComponents\MovementManager</Filter>
     </ClCompile>
     <ClCompile Include="location_manager.cpp">
@@ -6657,169 +6657,166 @@
       <Filter>AI\Monsters\humans\Trader</Filter>
     </ClCompile>
     <ClCompile Include="Ai\Stalker\Stalker.cpp">
-      <Filter>AI\Monsters\humans\stalker</Filter>
-    </ClCompile>
-    <ClCompile Include="Ai\Stalker\ai_stalker_script.cpp">
-      <Filter>AI\Monsters\humans\stalker</Filter>
+      <Filter>AI\Monsters\humans\Stalker</Filter>
     </ClCompile>
     <ClCompile Include="stalker_animation_callbacks.cpp">
-      <Filter>AI\Monsters\humans\stalker\AnimationManager</Filter>
+      <Filter>AI\Monsters\humans\Stalker\AnimationManager</Filter>
     </ClCompile>
     <ClCompile Include="stalker_animation_global.cpp">
-      <Filter>AI\Monsters\humans\stalker\AnimationManager</Filter>
+      <Filter>AI\Monsters\humans\Stalker\AnimationManager</Filter>
     </ClCompile>
     <ClCompile Include="stalker_animation_head.cpp">
-      <Filter>AI\Monsters\humans\stalker\AnimationManager</Filter>
+      <Filter>AI\Monsters\humans\Stalker\AnimationManager</Filter>
     </ClCompile>
     <ClCompile Include="stalker_animation_legs.cpp">
-      <Filter>AI\Monsters\humans\stalker\AnimationManager</Filter>
+      <Filter>AI\Monsters\humans\Stalker\AnimationManager</Filter>
     </ClCompile>
     <ClCompile Include="stalker_animation_manager.cpp">
-      <Filter>AI\Monsters\humans\stalker\AnimationManager</Filter>
+      <Filter>AI\Monsters\humans\Stalker\AnimationManager</Filter>
     </ClCompile>
     <ClCompile Include="stalker_animation_manager_debug.cpp">
-      <Filter>AI\Monsters\humans\stalker\AnimationManager</Filter>
+      <Filter>AI\Monsters\humans\Stalker\AnimationManager</Filter>
     </ClCompile>
     <ClCompile Include="stalker_animation_manager_update.cpp">
-      <Filter>AI\Monsters\humans\stalker\AnimationManager</Filter>
+      <Filter>AI\Monsters\humans\Stalker\AnimationManager</Filter>
     </ClCompile>
     <ClCompile Include="stalker_animation_script.cpp">
-      <Filter>AI\Monsters\humans\stalker\AnimationManager</Filter>
+      <Filter>AI\Monsters\humans\Stalker\AnimationManager</Filter>
     </ClCompile>
     <ClCompile Include="stalker_animation_torso.cpp">
-      <Filter>AI\Monsters\humans\stalker\AnimationManager</Filter>
+      <Filter>AI\Monsters\humans\Stalker\AnimationManager</Filter>
     </ClCompile>
     <ClCompile Include="stalker_animation_data_storage.cpp">
-      <Filter>AI\Monsters\humans\stalker\AnimationManager\data_storage</Filter>
+      <Filter>AI\Monsters\humans\Stalker\AnimationManager\data_storage</Filter>
     </ClCompile>
     <ClCompile Include="stalker_animation_data.cpp">
-      <Filter>AI\Monsters\humans\stalker\AnimationManager\data_storage\data</Filter>
+      <Filter>AI\Monsters\humans\Stalker\AnimationManager\data_storage\data</Filter>
     </ClCompile>
     <ClCompile Include="stalker_animation_names.cpp">
-      <Filter>AI\Monsters\humans\stalker\AnimationManager\names</Filter>
+      <Filter>AI\Monsters\humans\Stalker\AnimationManager\names</Filter>
     </ClCompile>
     <ClCompile Include="stalker_animation_pair.cpp">
-      <Filter>AI\Monsters\humans\stalker\AnimationManager\pair</Filter>
+      <Filter>AI\Monsters\humans\Stalker\AnimationManager\pair</Filter>
     </ClCompile>
     <ClCompile Include="stalker_animation_state.cpp">
-      <Filter>AI\Monsters\humans\stalker\AnimationManager\state</Filter>
+      <Filter>AI\Monsters\humans\Stalker\AnimationManager\state</Filter>
     </ClCompile>
     <ClCompile Include="cover_evaluators.cpp">
-      <Filter>AI\Monsters\humans\stalker\CoverEvaluators</Filter>
+      <Filter>AI\Monsters\humans\Stalker\CoverEvaluators</Filter>
     </ClCompile>
     <ClCompile Include="stalker_planner.cpp">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker</Filter>
     </ClCompile>
     <ClCompile Include="stalker_base_action.cpp">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions</Filter>
     </ClCompile>
     <ClCompile Include="stalker_alife_planner.cpp">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\alife</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\alife</Filter>
     </ClCompile>
     <ClCompile Include="stalker_alife_actions.cpp">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\alife\actions</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\alife\actions</Filter>
     </ClCompile>
     <ClCompile Include="stalker_alife_task_actions.cpp">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\alife\task_actions</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\alife\task_actions</Filter>
     </ClCompile>
     <ClCompile Include="stalker_anomaly_planner.cpp">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\anomaly</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\anomaly</Filter>
     </ClCompile>
     <ClCompile Include="stalker_anomaly_actions.cpp">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\anomaly\actions</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\anomaly\actions</Filter>
     </ClCompile>
     <ClCompile Include="stalker_combat_planner.cpp">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\combat</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\combat</Filter>
     </ClCompile>
     <ClCompile Include="stalker_combat_actions.cpp">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\combat\actions</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\combat\actions</Filter>
     </ClCompile>
     <ClCompile Include="stalker_combat_action_base.cpp">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\combat\actions\base</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\combat\actions\base</Filter>
     </ClCompile>
     <ClCompile Include="stalker_kill_wounded_planner.cpp">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\combat\kill_wounded</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\combat\kill_wounded</Filter>
     </ClCompile>
     <ClCompile Include="stalker_kill_wounded_actions.cpp">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\combat\kill_wounded\actions</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\combat\kill_wounded\actions</Filter>
     </ClCompile>
     <ClCompile Include="stalker_danger_planner.cpp">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\danger</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\danger</Filter>
     </ClCompile>
     <ClCompile Include="stalker_danger_unknown_planner.cpp">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\danger\actions\unknown</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\danger\actions\unknown</Filter>
     </ClCompile>
     <ClCompile Include="stalker_danger_unknown_actions.cpp">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\danger\actions\unknown\actions</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\danger\actions\unknown\actions</Filter>
     </ClCompile>
     <ClCompile Include="stalker_danger_in_direction_planner.cpp">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\danger\actions\in_direction</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\danger\actions\in_direction</Filter>
     </ClCompile>
     <ClCompile Include="stalker_danger_in_direction_actions.cpp">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\danger\actions\in_direction\actions</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\danger\actions\in_direction\actions</Filter>
     </ClCompile>
     <ClCompile Include="stalker_danger_grenade_planner.cpp">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\danger\actions\grenade</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\danger\actions\grenade</Filter>
     </ClCompile>
     <ClCompile Include="stalker_danger_grenade_actions.cpp">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\danger\actions\grenade\actions</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\danger\actions\grenade\actions</Filter>
     </ClCompile>
     <ClCompile Include="stalker_danger_by_sound_planner.cpp">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\danger\actions\by_sound</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\danger\actions\by_sound</Filter>
     </ClCompile>
     <ClCompile Include="stalker_danger_by_sound_actions.cpp">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\danger\actions\by_sound\actions</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\danger\actions\by_sound\actions</Filter>
     </ClCompile>
     <ClCompile Include="stalker_danger_property_evaluators.cpp">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\danger\properties</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\danger\properties</Filter>
     </ClCompile>
     <ClCompile Include="stalker_death_planner.cpp">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\death</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\death</Filter>
     </ClCompile>
     <ClCompile Include="stalker_death_actions.cpp">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\actions\death\actions</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\actions\death\actions</Filter>
     </ClCompile>
     <ClCompile Include="stalker_property_evaluators.cpp">
-      <Filter>AI\Monsters\humans\stalker\DecisionMaker\properties</Filter>
+      <Filter>AI\Monsters\humans\Stalker\DecisionMaker\properties</Filter>
     </ClCompile>
     <ClCompile Include="stalker_movement_manager.cpp">
-      <Filter>AI\Monsters\humans\stalker\MovementManager</Filter>
+      <Filter>AI\Monsters\humans\Stalker\MovementManager</Filter>
     </ClCompile>
     <ClCompile Include="stalker_velocity_collection.cpp">
-      <Filter>AI\Monsters\humans\stalker\MovementManager\velocity_collection</Filter>
+      <Filter>AI\Monsters\humans\Stalker\MovementManager\velocity_collection</Filter>
     </ClCompile>
     <ClCompile Include="stalker_velocity_holder.cpp">
-      <Filter>AI\Monsters\humans\stalker\MovementManager\velocity_holder</Filter>
+      <Filter>AI\Monsters\humans\Stalker\MovementManager\velocity_holder</Filter>
     </ClCompile>
     <ClCompile Include="ai_stalker_alife.cpp">
-      <Filter>AI\Monsters\humans\stalker\Miscellaneous</Filter>
+      <Filter>AI\Monsters\humans\Stalker\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="ai\stalker\ai_stalker_cover.cpp">
-      <Filter>AI\Monsters\humans\stalker\Miscellaneous</Filter>
+      <Filter>AI\Monsters\humans\Stalker\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="ai\stalker\ai_stalker_debug.cpp">
-      <Filter>AI\Monsters\humans\stalker\Miscellaneous</Filter>
+      <Filter>AI\Monsters\humans\Stalker\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="Ai\Stalker\ai_stalker_events.cpp">
-      <Filter>AI\Monsters\humans\stalker\Miscellaneous</Filter>
+      <Filter>AI\Monsters\humans\Stalker\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="Ai\Stalker\ai_stalker_feel.cpp">
-      <Filter>AI\Monsters\humans\stalker\Miscellaneous</Filter>
+      <Filter>AI\Monsters\humans\Stalker\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="Ai\Stalker\ai_stalker_fire.cpp">
-      <Filter>AI\Monsters\humans\stalker\Miscellaneous</Filter>
+      <Filter>AI\Monsters\humans\Stalker\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="Ai\Stalker\ai_stalker_misc.cpp">
-      <Filter>AI\Monsters\humans\stalker\Miscellaneous</Filter>
+      <Filter>AI\Monsters\humans\Stalker\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="ai\stalker\ai_stalker_script_entity.cpp">
-      <Filter>AI\Monsters\humans\stalker\Miscellaneous</Filter>
+      <Filter>AI\Monsters\humans\Stalker\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="stalker_sound_data_visitor.cpp">
-      <Filter>AI\Monsters\humans\stalker\SoundDataVisitor</Filter>
+      <Filter>AI\Monsters\humans\Stalker\SoundDataVisitor</Filter>
     </ClCompile>
     <ClCompile Include="stalker_sound_data.cpp">
-      <Filter>AI\Monsters\humans\stalker\SoundUserData</Filter>
+      <Filter>AI\Monsters\humans\Stalker\SoundUserData</Filter>
     </ClCompile>
     <ClCompile Include="game_graph_script.cpp">
       <Filter>AI\ANavigation\GameGraph</Filter>

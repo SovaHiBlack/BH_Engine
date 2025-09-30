@@ -7,7 +7,7 @@
 #include "../../detail_path_manager.h"
 #include "../../ai_object_location.h"
 #include "../../AISpace.h"
-#include "../../movement_manager_space.h"
+#include "../../MovementManager_space.h"
 #include "../../level_path_manager.h"
 #include "../../Actor.h"
 #include "../../ActorMemory.h"

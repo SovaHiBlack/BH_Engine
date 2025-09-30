@@ -22,7 +22,7 @@
 #include "ai_phrasedialogmanager.h"
 #include "../xrNetServer/net_utils.h"
 #include "xrMessages.h"
-#include "custommonster.h"
+#include "CustomMonster.h"
 #include "visual_memory_manager.h"
 #include "sound_memory_manager.h"
 #include "hit_memory_manager.h"
@@ -35,7 +35,7 @@
 #include "..\XR_3DA\CameraBase.h"
 #include "ai/stalker/Stalker.h"
 #include "car.h"
-#include "movement_manager.h"
+#include "MovementManager.h"
 #include "detail_path_manager.h"
 
 void CScriptGameObject::explode	(u32 level_time)

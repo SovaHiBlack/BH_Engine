@@ -27,7 +27,7 @@
 #include "ai_object_location.h"
 #include "level_graph.h"
 #include "game_graph.h"
-#include "movement_manager.h"
+#include "MovementManager.h"
 #include "EntityCondition.h"
 #include "sound_player.h"
 #include "Level.h"
@@ -190,15 +190,15 @@ void CCustomMonster::net_Export(CNetPacket& P)					// export to server
 
 	// export last known packet
 	R_ASSERT(!NET.empty( ));
-	net_update& N = NET.back( );
+	SNetUpdate& N = NET.back( );
 	P.w_float(GetfHealth( ));
 	P.w_u32(N.dwTimeStamp);
 	P.w_u8(0);
 	P.w_vec3(N.p_pos);
-	P.w_float /*w_angle8*/(N.o_model);
-	P.w_float /*w_angle8*/(N.o_torso.yaw);
-	P.w_float /*w_angle8*/(N.o_torso.pitch);
-	P.w_float /*w_angle8*/(N.o_torso.roll);
+	P.w_float(N.o_model);
+	P.w_float(N.o_torso.yaw);
+	P.w_float(N.o_torso.pitch);
+	P.w_float(N.o_torso.roll);
 	P.w_u8(u8(g_Team( )));
 	P.w_u8(u8(g_Squad( )));
 	P.w_u8(u8(g_Group( )));
@@ -207,7 +207,7 @@ void CCustomMonster::net_Export(CNetPacket& P)					// export to server
 void CCustomMonster::net_Import(CNetPacket& P)
 {
 	R_ASSERT(Remote( ));
-	net_update				N;
+	SNetUpdate N;
 
 	u8 flags;
 
@@ -218,10 +218,10 @@ void CCustomMonster::net_Import(CNetPacket& P)
 	P.r_u32(N.dwTimeStamp);
 	P.r_u8(flags);
 	P.r_vec3(N.p_pos);
-	P.r_float /*r_angle8*/(N.o_model);
-	P.r_float /*r_angle8*/(N.o_torso.yaw);
-	P.r_float /*r_angle8*/(N.o_torso.pitch);
-	P.r_float /*r_angle8*/(N.o_torso.roll);
+	P.r_float(N.o_model);
+	P.r_float(N.o_torso.yaw);
+	P.r_float(N.o_torso.pitch);
+	P.r_float(N.o_torso.roll);
 
 	id_Team = P.r_u8( );
 	id_Squad = P.r_u8( );
@@ -277,18 +277,22 @@ void CCustomMonster::shedule_Update(u32 DT)
 	{
 	}
 	else
-	{
-	 // here is monster AI call
+	{	// here is monster AI call
 		m_fTimeUpdateDelta = dt;
 		Device.Statistic->AI_Think.Begin( );
 		Device.Statistic->TEST1.Begin( );
 		if (GetScriptControl( ))
+		{
 			ProcessScripts( );
+		}
 		else
 		{
 			if (Device.dwFrame > spawn_time( ) + g_AI_inactive_time)
+			{
 				Think( );
+			}
 		}
+
 		m_dwLastUpdateTime = Device.dwTimeGlobal;
 		Device.Statistic->TEST1.End( );
 		Device.Statistic->AI_Think.End( );
@@ -302,7 +306,7 @@ void CCustomMonster::shedule_Update(u32 DT)
 			//Exec_Visibility		();
 			VERIFY(_valid(Position( )));
 
-			net_update				uNext;
+			SNetUpdate uNext;
 			uNext.dwTimeStamp = Level( ).timeServer( );
 			uNext.o_model = movement( ).m_body.current.yaw;
 			uNext.o_torso = movement( ).m_body.current;
@@ -312,7 +316,7 @@ void CCustomMonster::shedule_Update(u32 DT)
 		}
 		else
 		{
-			net_update			uNext;
+			SNetUpdate uNext;
 			uNext.dwTimeStamp = Level( ).timeServer( );
 			uNext.o_model = movement( ).m_body.current.yaw;
 			uNext.o_torso = movement( ).m_body.current;
@@ -323,7 +327,7 @@ void CCustomMonster::shedule_Update(u32 DT)
 	}
 }
 
-void CCustomMonster::net_update::lerp(CCustomMonster::net_update& A, CCustomMonster::net_update& B, f32 f)
+void CCustomMonster::SNetUpdate::lerp(CCustomMonster::SNetUpdate& A, CCustomMonster::SNetUpdate& B, f32 f)
 {
 	// 
 	o_model = angle_lerp(A.o_model, B.o_model, f);
@@ -379,7 +383,7 @@ void CCustomMonster::UpdateCL( )
 
 	// distinguish interpolation/extrapolation
 	u32	dwTime = Level( ).timeServer( ) - NET_Latency;
-	net_update& N = NET.back( );
+	SNetUpdate& N = NET.back( );
 	if ((dwTime > N.dwTimeStamp) || (NET.size( ) < 2))
 	{
 // BAD.	extrapolation
@@ -398,8 +402,8 @@ void CCustomMonster::UpdateCL( )
 		if (select >= 0)
 		{
 			// Interpolate state
-			net_update& A = NET[select + 0];
-			net_update& B = NET[select + 1];
+			SNetUpdate& A = NET[select + 0];
+			SNetUpdate& B = NET[select + 1];
 			u32	d1 = dwTime - A.dwTimeStamp;
 			u32	d2 = B.dwTimeStamp - A.dwTimeStamp;
 //			VERIFY					(d2);
@@ -502,42 +506,27 @@ void CCustomMonster::update_range_fov(f32& new_range, f32& new_fov, f32 start_ra
 	// 300=standart, 50=super-fog
 
 	new_fov = start_fov;
-	new_range =
-		start_range
-		*
-		(
-		_min(m_far_plane_factor * current_far_plane, standard_far_plane)
-		/
-		standard_far_plane
-		)
-		*
-		(
-		1.f
-		/
-		(
-		1.f + m_fog_density_factor * current_fog_density
-		)
-		)
-		;
+	new_range = start_range * (_min(m_far_plane_factor * current_far_plane, standard_far_plane) / standard_far_plane) * (1.0f / (1.0f + m_fog_density_factor * current_fog_density));
 }
 
 void CCustomMonster::eye_pp_s1( )
 {
-	f32									new_range = eye_range;
-	f32									new_fov = eye_fov;
+	f32 new_range = eye_range;
+	f32 new_fov = eye_fov;
 	if (g_Alive( ))
 	{
 #ifndef USE_STALKER_VISION_FOR_MONSTERS
 		update_range_fov(new_range, new_fov, human_being( ) ? memory( ).visual( ).current_state( ).m_max_view_distance * eye_range : eye_range, eye_fov);
-#else 
+#else
 		update_range_fov(new_range, new_fov, memory( ).visual( ).current_state( ).m_max_view_distance * eye_range, eye_fov);
 #endif
 	}
+
 	// Standart visibility
 	Device.Statistic->AI_Vis_Query.Begin( );
-	fMatrix4x4								mProject;
-	fMatrix4x4								mFull;
-	fMatrix4x4								mView;
+	fMatrix4x4 mProject;
+	fMatrix4x4 mFull;
+	fMatrix4x4 mView;
 	mView.build_camera_dir(eye_matrix.c, eye_matrix.k, eye_matrix.j);
 	VERIFY(_valid(eye_matrix));
 	mProject.build_projection(deg2rad(new_fov), 1, 0.1f, new_range);
@@ -553,22 +542,32 @@ void CCustomMonster::eye_pp_s2( )
 	u32 dwTime = Level( ).timeServer( );
 	u32 dwDT = dwTime - eye_pp_timestamp;
 	eye_pp_timestamp = dwTime;
-	feel_vision_update(this, eye_matrix.c, f32(dwDT) / 1000.f, memory( ).visual( ).transparency_threshold( ));
+	feel_vision_update(this, eye_matrix.c, f32(dwDT) / 1000.0f, memory( ).visual( ).transparency_threshold( ));
 	Device.Statistic->AI_Vis_RayTests.End( );
 }
 
 void CCustomMonster::Exec_Visibility( )
 {
 	//if (0==Sector())				return;
-	if (!g_Alive( ))					return;
+	if (!g_Alive( ))
+	{
+		return;
+	}
 
 	Device.Statistic->AI_Vis.Begin( );
 	switch (eye_pp_stage % 2)
 	{
 		case 0:
+		{
 			eye_pp_s0( );
-			eye_pp_s1( );			break;
-		case 1:	eye_pp_s2( );			break;
+			eye_pp_s1( );
+		}
+		break;
+		case 1:
+		{
+			eye_pp_s2( );
+		}
+		break;
 	}
 	++eye_pp_stage;
 	Device.Statistic->AI_Vis.End( );
@@ -576,10 +575,13 @@ void CCustomMonster::Exec_Visibility( )
 
 void CCustomMonster::UpdateCamera( )
 {
-	f32									new_range = eye_range;
-	f32									new_fov = eye_fov;
+	f32 new_range = eye_range;
+	f32 new_fov = eye_fov;
 	if (g_Alive( ))
+	{
 		update_range_fov(new_range, new_fov, memory( ).visual( ).current_state( ).m_max_view_distance * eye_range, eye_fov);
+	}
+
 	g_pGameLevel->Cameras( ).Update(eye_matrix.c, eye_matrix.k, eye_matrix.j, new_fov, .75f, new_range);
 }
 
@@ -589,8 +591,7 @@ void CCustomMonster::HitSignal(f32 /**perc/**/, fVector3& /**vLocalDir/**/, CObj
 void CCustomMonster::Die(CObject* who)
 {
 	inherited::Die(who);
-	//Level().RemoveMapLocationByID(this->ID());
-	Actor( )->SetActorVisibility(ID( ), 0.f);
+	Actor( )->SetActorVisibility(ID( ), 0.0f);
 }
 
 BOOL CCustomMonster::net_Spawn(CSE_Abstract* DC)
@@ -599,7 +600,9 @@ BOOL CCustomMonster::net_Spawn(CSE_Abstract* DC)
 	memory( ).reinit( );
 
 	if (!movement( ).net_Spawn(DC) || !inherited::net_Spawn(DC) || !CScriptEntity::net_Spawn(DC))
-		return					(FALSE);
+	{
+		return FALSE;
+	}
 
 	ISpatial* self = smart_cast<ISpatial*> (this);
 	if (self)
@@ -607,7 +610,9 @@ BOOL CCustomMonster::net_Spawn(CSE_Abstract* DC)
 		self->spatial.type |= STYPE_VISIBLEFORAI;
 		// enable react to sound only if alive
 		if (g_Alive( ))
+		{
 			self->spatial.type |= STYPE_REACTTOSOUND;
+		}
 	}
 
 	CSE_Abstract* e = (CSE_Abstract*)(DC);
@@ -626,7 +631,9 @@ BOOL CCustomMonster::net_Spawn(CSE_Abstract* DC)
 	if (ai( ).get_level_graph( ) && UsedAI_Locations( ) && (e->ID_Parent == 0xffff))
 	{
 		if (ai( ).game_graph( ).valid_vertex_id(E->m_tGraphID))
+		{
 			ai_location( ).game_vertex(E->m_tGraphID);
+		}
 
 		if (
 			ai( ).game_graph( ).valid_vertex_id(E->m_tNextGraphID)
@@ -639,14 +646,18 @@ BOOL CCustomMonster::net_Spawn(CSE_Abstract* DC)
 			)->level_vertex_id( )
 			)
 			)
+		{
 			movement( ).set_game_dest_vertex(E->m_tNextGraphID);
+		}
 
 		if (movement( ).restrictions( ).accessible(ai_location( ).level_vertex_id( )))
+		{
 			movement( ).set_level_dest_vertex(ai_location( ).level_vertex_id( ));
+		}
 		else
 		{
-			fVector3									dest_position;
-			u32										level_vertex_id;
+			fVector3 dest_position;
+			u32 level_vertex_id;
 			level_vertex_id = movement( ).restrictions( ).accessible_nearest(ai( ).level_graph( ).vertex_position(ai_location( ).level_vertex_id( )), dest_position);
 			movement( ).set_level_dest_vertex(level_vertex_id);
 			movement( ).detail( ).set_dest_position(dest_position);
@@ -659,11 +670,11 @@ BOOL CCustomMonster::net_Spawn(CSE_Abstract* DC)
 	// weapons
 	if (Local( ))
 	{
-		net_update				N;
+		SNetUpdate N;
 		N.dwTimeStamp = Level( ).timeServer( ) - NET_Latency;
 		N.o_model = -E->o_torso.yaw;
 		N.o_torso.yaw = -E->o_torso.yaw;
-		N.o_torso.pitch = 0;
+		N.o_torso.pitch = 0.0f;
 		N.p_pos.set(Position( ));
 		NET.push_back(N);
 

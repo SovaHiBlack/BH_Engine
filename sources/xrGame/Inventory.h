@@ -63,7 +63,7 @@ public:
 	void					Activate_deffered(u32 slot, u32 _frame);
 	PIItem					ActiveItem( )const
 	{
-		return m_iActiveSlot == NO_ACTIVE_SLOT ? NULL : m_slots[m_iActiveSlot].m_pIItem;
+		return (m_iActiveSlot == NO_ACTIVE_SLOT ? NULL : m_slots[m_iActiveSlot].m_pIItem);
 	}
 	PIItem					ItemFromSlot(u32 slot) const;
 	void					ActivateNextItemInActiveSlot( );
@@ -164,7 +164,7 @@ public:
 		return m_pOwner;
 	}
 
-// Объект на который наведен прицел
+	// Объект на который наведен прицел
 	PIItem				m_pTarget;
 
 	friend class CInventoryOwner;
@@ -201,15 +201,15 @@ protected:
 	bool				m_bSlotsUseful;
 
 	// максимальный вес инвентаря
-	f32				m_fMaxWeight;
+	f32					m_fMaxWeight;
 	// текущий вес в инвентаре
-	f32				m_fTotalWeight;
+	f32					m_fTotalWeight;
 
 	// Максимальное кол-во объектов
 	//на поясе
 	u32					m_iMaxBelt;
 	// Максимальное расстояние на котором можно подобрать объект
-	f32				 m_fTakeDist;
+	f32					m_fTakeDist;
 
 	//кадр на котором произошло последнее изменение в инвенторе
 	u32					m_dwModifyFrame;

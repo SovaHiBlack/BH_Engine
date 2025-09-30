@@ -16,7 +16,7 @@
 #include "ParticlesObject.h"
 #include "script_game_object.h"
 #include "script_engine.h"
-#include "movement_manager_space.h"
+#include "MovementManager_space.h"
 #include "detail_path_manager.h"
 #include "patrol_path_manager.h"
 #include "patrol_path_manager_space.h"
@@ -25,7 +25,7 @@
 #include "memory_manager.h"
 #include "visual_memory_manager.h"
 #include "ai_object_location.h"
-#include "movement_manager.h"
+#include "MovementManager.h"
 #include "script_callback_ex.h"
 #include "GameObject_space.h"
 
